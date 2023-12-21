@@ -1,0 +1,23 @@
+{
+	"name": "chef-kiss",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"build": "wp-scripts build --webpack-src-dir=blocks",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"start": "wp-scripts start --webpack-src-dir=blocks"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^26.12.0",
+		"glob": "^10.3.10",
+		"webpack-remove-empty-scripts": "^1.0.4"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"prettier": "@wordpress/prettier-config"
+}

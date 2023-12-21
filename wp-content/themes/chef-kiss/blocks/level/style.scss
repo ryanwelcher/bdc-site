@@ -1,0 +1,21 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-chef-kiss-level {
+
+	.level-1:before {
+		content: var(--wp--custom--chef-kiss-level--icon);
+	}
+
+	.level-2:before {
+		content: var(--wp--custom--chef-kiss-level--icon) var(--wp--custom--chef-kiss-level--icon);
+	}
+
+	.level-3:before {
+		content: var(--wp--custom--chef-kiss-level--icon) var(--wp--custom--chef-kiss-level--icon);
+	}
+}
