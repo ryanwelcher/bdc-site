@@ -15,7 +15,7 @@
  */
 
 
- body{
-	background-image: url('/wp-content/themes/chef-kiss/assets/img/circuits.png');
+body {
+	background-image: var(--background-image-url);
 	background-size: 150px 150px;
- }
+}
