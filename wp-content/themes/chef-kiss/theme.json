@@ -11,22 +11,17 @@
 			"defaultPalette": false,
 			"palette": [
 				{
-					"color": "#1E1E3F",
-					"name": "Card",
-					"slug": "card"
-				},
-				{
-					"color": "#F2ECFF",
+					"color": "#fff",
 					"name": "Text",
 					"slug": "text"
 				},
 				{
-					"color": "#F9F871",
+					"color": "#E76F51",
 					"name": "Highlight",
 					"slug": "highlight"
 				},
 				{
-					"color": "#DBEFEF",
+					"color": "#2D2B55",
 					"name": "Background",
 					"slug": "background"
 				}
@@ -64,6 +59,21 @@
 				}
 			],
 			"fontFamilies": [
+				{
+					"fontFace": [
+						{
+							"fontFamily": "Jost",
+							"fontStyle": "normal",
+							"fontWeight": "normal",
+							"src": [
+								"file:./assets/fonts/Jost/Jost-VariableFont_wght"
+							]
+						}
+					],
+					"fontFamily": "Jost",
+					"name": "Jost",
+					"slug": "jost"
+				},
 				{
 					"fontFace": [
 						{
@@ -179,8 +189,8 @@
 			"text": "var( --wp--preset--color--text )"
 		},
 		"typography": {
-			"fontFamily": "var( --wp--preset--font-family--space-mono )",
-			"fontSize": "var( --wp--preset--font-size--medium )"
+			"fontFamily": "var( --wp--preset--font-family--jost )",
+			"fontSize": "var( --wp--preset--font-size--large )"
 		},
 		"elements": {
 			"button": {
@@ -194,8 +204,13 @@
 					"text": "var( --wp--preset--color--highlight )"
 				},
 				"typography": {
-					"fontFamily": "var( --wp--preset--font-family--space-mono )",
-					"fontSize": "var( --wp--preset--font-size--large )"
+					"fontFamily": "var( --wp--preset--font-family--jost )",
+					"fontSize": "var( --wp--preset--font-size--x-large )"
+				}
+			},
+			"link": {
+				"color": {
+					"text": "var( --wp--preset--color--highlight )"
 				}
 			}
 		},
