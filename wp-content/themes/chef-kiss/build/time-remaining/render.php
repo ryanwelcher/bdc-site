@@ -39,5 +39,5 @@ wp_store(
 	data-wp-interactive='{ "namespace": "chef-kiss" }'
 	data-wp-watch='callbacks.watchTime'
 >
-Time: <span data-wp-text="state.timeAssigned"></span>/<span data-wp-text="state.totalDuration"></span>
+Time Allotted: <span data-wp-text="state.timeAssigned"></span>/<span data-wp-text="state.totalDuration"></span>
 </div>

@@ -1,1 +1,16 @@
-.wp-block-columns.recipe-container,.wp-block-group.recipe-container{background-color:var(--wp--preset--color--card);box-shadow:0 8px 24px hsla(210,8%,62%,.2);position:relative}.wp-block-columns.recipe-container .number-value,.wp-block-group.recipe-container .number-value{color:var(--wp--preset--color--highlight)}.wp-block-columns.recipe-container:hover,.wp-block-group.recipe-container:hover{transform:scale(1.05);transition:transform .2s ease-in-out}
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./css/core-blocks/group.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
+.wp-block-group.recipe-container,
+.wp-block-columns.recipe-container {
+  background-color: var(--wp--preset--color--card);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: relative;
+  border: 1px solid var(--wp--preset--color--highlight);
+}
+.wp-block-group.recipe-container .number-value,
+.wp-block-columns.recipe-container .number-value {
+  color: var(--wp--preset--color--highlight);
+}
+
+/*# sourceMappingURL=group.css.map*/

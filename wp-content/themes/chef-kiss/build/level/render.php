@@ -16,5 +16,5 @@ $level = get_post_meta( $post->ID, 'level', true );
 <div
 	<?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>
 >
-	<p><?php __( 'Skill Level:', 'chef-kiss' );?> <span class="number-value level-<?php echo esc_attr( $level ); ?>"></span></p>
+	<p><?php esc_html_e( 'Skill Level:', 'chef-kiss' ); ?> <span class="number-value level-<?php echo esc_attr( $level ); ?>"></span></p>
 </div>

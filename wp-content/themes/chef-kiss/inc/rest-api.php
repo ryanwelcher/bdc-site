@@ -29,8 +29,9 @@ class BDC_REST_API extends WP_REST_Controller {
 			'/vote',
 			array(
 				array(
-					'methods'  => \WP_REST_Server::CREATABLE,
-					'callback' => array( $this, 'register_vote' ),
+					'methods'             => \WP_REST_Server::CREATABLE,
+					'callback'            => array( $this, 'register_vote' ),
+					'permission_callback' => '__return_true'
 				),
 			)
 		);

@@ -7,4 +7,6 @@
 
 .wp-block-chef-kiss-time-remaining {
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	border: solid 1px var( --wp--preset--color--highlight );
+	border-top-left-radius: 1rem;
 }

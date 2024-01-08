@@ -43,6 +43,13 @@ add_action(
 add_action(
 	'wp_enqueue_scripts',
 	function () {
-		wp_enqueue_style( 'style', get_stylesheet_uri() );
+		$variations_assets_file = get_stylesheet_directory() . '/build/variations.asset.php';
+		$assets                 = include $variations_assets_file;
+		wp_enqueue_style(
+			'style',
+			get_stylesheet_uri(),
+			array(),
+			$assets['version']
+		);
 	}
 );
