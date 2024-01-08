@@ -16,6 +16,6 @@
 
 
 body {
-	background-image: var(--background-image-url);
+	background-image: url('assets/img/circuits.png');
 	background-size: 150px 150px;
 }

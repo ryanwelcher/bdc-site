@@ -46,19 +46,3 @@ add_action(
 		wp_enqueue_style( 'style', get_stylesheet_uri() );
 	}
 );
-
-/**
- * Add the theme bg image as a variable.
- */
-add_action(
-	'wp_head',
-	function () {
-		?>
-		<style>
-			:root {
-			--background-image-url: url('<?php echo esc_url( get_parent_theme_file_uri( 'assets/img/circuits.png' ) ); ?>');
-			}
-		</style>
-		<?php
-	}
-);
