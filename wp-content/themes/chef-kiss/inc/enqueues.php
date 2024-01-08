@@ -9,14 +9,6 @@ namespace ChefKiss\Enqueues;
 add_action(
 	'enqueue_block_editor_assets',
 	function () {
-
-		// wp_enqueue_style(
-		// 	'editor-style',
-		// 	get_theme_file_uri( '/editor-style.css' ),
-		// 	array(),
-		// 	'all'
-		// );
-
 		$assets_file = get_stylesheet_directory() . '/build/plugins.asset.php';
 
 		if ( file_exists( $assets_file ) ) {
@@ -44,9 +36,29 @@ add_action(
 		}
 	}
 );
+
+/**
+ * Enqueue the theme stylesheet
+ */
 add_action(
 	'wp_enqueue_scripts',
 	function () {
 		wp_enqueue_style( 'style', get_stylesheet_uri() );
+	}
+);
+
+/**
+ * Add the theme bg image as a variable.
+ */
+add_action(
+	'wp_head',
+	function () {
+		?>
+		<style>
+			:root {
+			--background-image-url: url('<?php echo esc_url( get_parent_theme_file_uri( 'assets/img/circuits.png' ) ); ?>');
+			}
+		</style>
+		<?php
 	}
 );

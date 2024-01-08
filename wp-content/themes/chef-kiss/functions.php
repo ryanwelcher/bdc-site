@@ -15,19 +15,7 @@ define( 'THEME_BUILD_DIR_PATH', THEME_DIR_PATH . '/build' );
 
 // Require files.
 require_once THEME_INC_PATH . 'post-types.php';
+require_once THEME_INC_PATH . 'taxonomies.php';
 require_once THEME_INC_PATH . 'enqueues.php';
 require_once THEME_INC_PATH . 'blocks.php';
 require_once THEME_INC_PATH . 'rest-api.php';
-
-add_action(
-	'wp_head',
-	function () {
-		?>
-		<style>
-			:root {
-			--background-image-url: url('<?php echo get_parent_theme_file_uri( 'assets/img/circuits.png' ); ?>');
-			}
-		</style>
-		<?php
-	}
-);
