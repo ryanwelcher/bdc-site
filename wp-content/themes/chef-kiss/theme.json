@@ -182,6 +182,12 @@
 				"color": {
 					"text": "var( --wp--preset--color--card )"
 				}
+			},
+			"core/image": {
+				"border": {
+					"color": "var( --wp--preset--color--highlight )",
+					"width": "1px"
+				}
 			}
 		},
 		"color": {
