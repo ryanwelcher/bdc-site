@@ -67,17 +67,6 @@ function register_recipes() {
 		)
 	);
 
-	register_post_meta(
-		'page',
-		'duration',
-		array(
-			'show_in_rest' => true,
-			'single'       => true,
-			'type'         => 'number',
-			'default'      => 90,
-		)
-	);
-
 	// Register the conference CPT
 	$args = array(
 		'labels'             => array(
@@ -103,6 +92,19 @@ function register_recipes() {
 		'conference',
 		$args
 	);
+
+	register_post_meta(
+		'conference',
+		'duration',
+		array(
+			'show_in_rest' => true,
+			'single'       => true,
+			'type'         => 'number',
+			'default'      => 90,
+		)
+	);
+
+
 	// Register the votes taxonomy.
 	$labels = array(
 		'name'              => _x( 'Votes', 'taxonomy general name', 'chef-kiss' ),

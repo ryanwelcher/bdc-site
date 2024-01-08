@@ -44,7 +44,7 @@ registerPlugin( 'chef-kiss', {
 						/>
 					</PluginDocumentSettingPanel>
 				);
-			case 'page':
+			case 'conference':
 				return (
 					<PluginDocumentSettingPanel
 						title={ __( 'Conference Details', 'chef-kiss' ) }
