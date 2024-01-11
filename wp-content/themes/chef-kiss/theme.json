@@ -38,49 +38,36 @@
 			"wideSize": "64rem"
 		},
 		"typography": {
-			"fluid": true,
 			"lineHeight": true,
 			"customFontSize": false,
 			"fontSizes": [
 				{
 					"slug": "sm",
-					"size": "0.89rem",
-					"fluid": {
-						"min": "0.8rem",
-						"max": "0.76rem"
-					}
+					"size": "clamp(0.7rem, 0.09vw + 0.68rem, 0.75rem)"
 				},
 				{
 					"slug": "base",
-					"size": "1rem",
-					"fluid": {
-						"min": "1rem",
-						"max": "1.19rem"
-					}
+					"size": "clamp(0.88rem, 0.23vw + 0.82rem, 1rem)"
 				},
 				{
 					"slug": "md",
-					"size": "1.1rem",
-					"fluid": {
-						"min": "1.25rem",
-						"max": "1.58rem"
-					}
+					"size": "clamp(1.09rem, 0.43vw + 0.98rem, 1.33rem)"
 				},
 				{
 					"slug": "lg",
-					"size": "1.31rem",
-					"fluid": {
-						"min": "1.56rem",
-						"max": "2.115rem"
-					}
+					"size": "clamp(1.37rem, 0.74vw + 1.18rem, 1.78rem)"
 				},
 				{
 					"slug": "xl",
-					"size": "1.95rem",
-					"fluid": {
-						"min": "1.95rem",
-						"max": "2.81rem"
-					}
+					"size": "clamp(1.71rem, 1.2vw + 1.41rem, 2.37rem)"
+				},
+				{
+					"slug": "xxl",
+					"size": "clamp(2.14rem, 1.86vw + 1.67rem, 3.16rem)"
+				},
+				{
+					"slug": "xxxl",
+					"size": "clamp(2.67rem, 2.8vw + 1.97rem, 4.21rem)"
 				}
 			],
 			"fontFamilies": [
@@ -169,8 +156,11 @@
 			}
 		},
 		"custom": {
-			"chef-kiss-level": {
-				"icon": "'👨‍🍳'"
+			"chef-kiss": {
+				"level": {
+					"icon": "'👨‍🍳'"
+				},
+				"box-shadow": "rgba(0, 0, 0, 0.35) 0px 5px 15px;"
 			}
 		}
 	},
@@ -188,12 +178,14 @@
 				"typography": {
 					"fontSize": "var( --wp--preset--font-size--md )",
 					"fontWeight": "default"
-				}
+				},
+				"css": "& p {margin:0}"
 			},
 			"chef-kiss/cooking-time": {
 				"typography": {
 					"fontSize": "var( --wp--preset--font-size--md )"
-				}
+				},
+				"css": "& p {margin:0}"
 			},
 			"core/post-excerpt": {
 				"color": {
@@ -235,7 +227,7 @@
 			}
 		},
 		"spacing": {
-			"blockGap": "2rem",
+			"blockGap": "1rem",
 			"margin": {
 				"bottom": "1rem",
 				"left": "5rem",
