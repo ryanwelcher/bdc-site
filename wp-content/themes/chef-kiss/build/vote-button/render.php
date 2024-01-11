@@ -44,5 +44,5 @@ $context = array(
 	data-wp-context='<?php echo wp_json_encode( $context ); ?>'
 	data-wp-watch='callbacks.canBeAdded'
 >
-<button data-wp-on--click="actions.vote" data-wp-bind--disabled="context.disabled" data-wp-text='state.buttonCTA'></button>
+<button class="wp-element-button" data-wp-on--click="actions.vote" data-wp-bind--disabled="context.disabled" data-wp-text='state.buttonCTA'></button>
 </div>

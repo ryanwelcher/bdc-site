@@ -17,7 +17,8 @@ if ( function_exists( 'gutenberg_enqueue_module' ) ) {
 
 global $post;
 
-$duration = intval( get_post_meta( $post->ID, 'duration', true ) );
+$duration  = intval( get_post_meta( $post->ID, 'duration', true ) );
+$unique_id = wp_unique_id();
 
 wp_store(
 	array(
@@ -29,6 +30,7 @@ wp_store(
 			'selectedRecipes' => array(),
 			'totalDuration'   => $duration,
 			'timeAssigned'    => 0,
+			'uniqueId'        => $unique_id,
 		),
 	)
 );

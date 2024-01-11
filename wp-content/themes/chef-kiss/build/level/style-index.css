@@ -8,13 +8,13 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-chef-kiss-level .level-1:before {
-  content: var(--wp--custom--chef-kiss-level--icon);
+  content: var(--wp--custom--chef-kiss--level--icon);
 }
 .wp-block-chef-kiss-level .level-2:before {
-  content: var(--wp--custom--chef-kiss-level--icon) var(--wp--custom--chef-kiss-level--icon);
+  content: var(--wp--custom--chef-kiss--level--icon) var(--wp--custom--chef-kiss--level--icon);
 }
 .wp-block-chef-kiss-level .level-3:before {
-  content: var(--wp--custom--chef-kiss-level--icon) var(--wp--custom--chef-kiss-level--icon);
+  content: var(--wp--custom--chef-kiss--level--icon) var(--wp--custom--chef-kiss--level--icon) var(--wp--custom--chef-kiss--level--icon);
 }
 
 /*# sourceMappingURL=style-index.css.map*/

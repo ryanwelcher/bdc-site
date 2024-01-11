@@ -8,14 +8,14 @@
 .wp-block-chef-kiss-level {
 
 	.level-1:before {
-		content: var(--wp--custom--chef-kiss-level--icon);
+		content: var(--wp--custom--chef-kiss--level--icon);
 	}
 
 	.level-2:before {
-		content: var(--wp--custom--chef-kiss-level--icon) var(--wp--custom--chef-kiss-level--icon);
+		content: var(--wp--custom--chef-kiss--level--icon) var(--wp--custom--chef-kiss--level--icon);
 	}
 
 	.level-3:before {
-		content: var(--wp--custom--chef-kiss-level--icon) var(--wp--custom--chef-kiss-level--icon);
+		content: var(--wp--custom--chef-kiss--level--icon) var(--wp--custom--chef-kiss--level--icon) var(--wp--custom--chef-kiss--level--icon);
 	}
 }
