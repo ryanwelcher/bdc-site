@@ -33,7 +33,11 @@ const { state } = store( 'chef-kiss', {
 		canBeAdded: () => {
 			const context = getContext();
 			// console.log( state.selectedRecipes );
-			context.disabled = context.time > state.allowedValue;
+			if ( state.selectedRecipes.includes( context.recipeId ) ) {
+				context.disabled = false;
+			} else {
+				context.disabled = context.time > state.allowedValue;
+			}
 		},
 	},
 } );

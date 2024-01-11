@@ -12,5 +12,13 @@
 .wp-block-columns.recipe-container .number-value {
   color: var(--wp--preset--color--highlight);
 }
+.wp-block-group.conference-header,
+.wp-block-columns.conference-header {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 2rem;
+  border: 1px solid var(--wp--preset--color--highlight);
+  background-color: var(--wp--preset--color--background);
+  color: var(--wp--preset--color--text);
+}
 
 /*# sourceMappingURL=group.css.map*/

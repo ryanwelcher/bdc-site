@@ -29,8 +29,8 @@ export default function Edit( { attributes, setAttributes } ) {
 	const blockProps = useBlockProps();
 
 	return (
-		<button { ...blockProps }>
-			{ __( 'Add this recipe', 'vote-button' ) }
-		</button>
+		<div { ...blockProps }>
+			<button>{ __( 'Add this recipe', 'vote-button' ) }</button>
+		</div>
 	);
 }

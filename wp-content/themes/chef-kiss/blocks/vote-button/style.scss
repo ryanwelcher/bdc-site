@@ -8,29 +8,27 @@
 .wp-block-chef-kiss-vote-button {
 	button {
 		transition: all .2s ease;
-		color: var(--wp--preset--color--card);
+		color: var(--wp--preset--color--text);
+		background-color: var(--wp--preset--color--highlight);
 		border: 3px solid var(--wp--preset--color--card);
 		text-transform: uppercase;
 		text-align: center;
-		line-height: 1;
-		font-size: 17px;
-		background-color: transparent;
-		padding: 10px;
+		font-size: var(--wp--preset--font-size--base);
+		padding: 0.5rem;
 		outline: none;
-		border-radius: 4px;
+		border-top-left-radius: 0.4rem;
 	}
 
 	button:hover {
-		color: var(--wp--preset--color--highlight);
-		background-color: var(--wp--preset--color--card);
+		color: var(--wp--preset--color--background);
 	}
 
 	button:disabled {
 		transition: none;
-		background-color: black;
+		opacity: 0.5;
 	}
 
 	button:disabled:hover {
-		color: var(--wp--preset--color--card);
+		color: var(--wp--preset--color--text);
 	}
 }

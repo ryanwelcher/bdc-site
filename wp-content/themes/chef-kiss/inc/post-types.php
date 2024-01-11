@@ -22,14 +22,14 @@ function register_recipes() {
 		'labels'             => array(
 			'name'          => __( 'Recipes', 'chef-kiss' ),
 			'singular_name' => __( 'Recipe', 'chef-kiss' ),
-			'add_new_item'  => __( 'Add New Recipe', 'chef-kiss' ),
+			'add_new'       => __( 'Add New Recipe', 'chef-kiss' ),
 		),
 		'public'             => true,
 		'publicly_queryable' => true,
 		'show_ui'            => true,
 		'show_in_menu'       => true,
 		'query_var'          => true,
-		'rewrite'            => array( 'slug' => 'recipe' ),
+		'rewrite'            => array( 'slug' => 'recipes' ),
 		'capability_type'    => 'post',
 		'has_archive'        => true,
 		'hierarchical'       => false,
@@ -72,14 +72,14 @@ function register_recipes() {
 		'labels'             => array(
 			'name'          => __( 'Conferences', 'chef-kiss' ),
 			'singular_name' => __( 'Conference', 'chef-kiss' ),
-			'add_new_item'  => __( 'Add New Conference', 'chef-kiss' ),
+			'add_new'       => __( 'Add New Conference', 'chef-kiss' ),
 		),
 		'public'             => true,
 		'publicly_queryable' => true,
 		'show_ui'            => true,
 		'show_in_menu'       => true,
 		'query_var'          => true,
-		'rewrite'            => array( 'slug' => 'conference' ),
+		'rewrite'            => array( 'slug' => 'conferences' ),
 		'capability_type'    => 'post',
 		'has_archive'        => true,
 		'hierarchical'       => false,
@@ -103,32 +103,4 @@ function register_recipes() {
 			'default'      => 90,
 		)
 	);
-
-
-	// Register the votes taxonomy.
-	$labels = array(
-		'name'              => _x( 'Votes', 'taxonomy general name', 'chef-kiss' ),
-		'singular_name'     => _x( 'Vote', 'taxonomy singular name', 'chef-kiss' ),
-		'search_items'      => __( 'Search Votes', 'chef-kiss' ),
-		'all_items'         => __( 'All Votes', 'chef-kiss' ),
-		'parent_item'       => __( 'Parent Vote', 'chef-kiss' ),
-		'parent_item_colon' => __( 'Parent Vote:', 'chef-kiss' ),
-		'edit_item'         => __( 'Edit Vote', 'chef-kiss' ),
-		'update_item'       => __( 'Update Vote', 'chef-kiss' ),
-		'add_new_item'      => __( 'Add New Vote', 'chef-kiss' ),
-		'new_item_name'     => __( 'New Vote Name', 'chef-kiss' ),
-		'menu_name'         => __( 'Vote', 'chef-kiss' ),
-	);
-
-	$args = array(
-		'hierarchical'      => false,
-		'labels'            => $labels,
-		'show_ui'           => true,
-		'show_admin_column' => true,
-		'query_var'         => true,
-		'show_in_rest'      => true,
-		'rewrite'           => array( 'slug' => 'vote' ),
-	);
-
-	register_taxonomy( 'votes', array( 'recipe' ), $args );
 }

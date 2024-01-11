@@ -6,11 +6,27 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block-create-block-vote-button input[type=text] {
-  font-size: 1em;
-  color: inherit;
-  background: inherit;
-  border: 0;
+.wp-block-chef-kiss-vote-button button {
+  transition: all 0.2s ease;
+  color: var(--wp--preset--color--text);
+  background-color: var(--wp--preset--color--highlight);
+  border: 3px solid var(--wp--preset--color--card);
+  text-transform: uppercase;
+  text-align: center;
+  font-size: var(--wp--preset--font-size--base);
+  padding: 0.5rem;
+  outline: none;
+  border-top-left-radius: 0.4rem;
+}
+.wp-block-chef-kiss-vote-button button:hover {
+  color: var(--wp--preset--color--background);
+}
+.wp-block-chef-kiss-vote-button button:disabled {
+  transition: none;
+  opacity: 0.5;
+}
+.wp-block-chef-kiss-vote-button button:disabled:hover {
+  color: var(--wp--preset--color--text);
 }
 
 /*# sourceMappingURL=index.css.map*/

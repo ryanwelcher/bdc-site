@@ -4,7 +4,6 @@
 	&.recipe-container {
 		background-color: var(--wp--preset--color--card);
 		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-		// box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 		position: relative;
 		border: 1px solid var(--wp--preset--color--highlight);
 	}
@@ -13,8 +12,11 @@
 		color: var(--wp--preset--color--highlight);
 	}
 
-	// &.recipe-container:hover {
-	// 	transition: transform 0.2s ease-in-out;
-	// 	transform: scale(1.05);
-	// }
+	&.conference-header {
+		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+		padding: 2rem;
+		border: 1px solid var(--wp--preset--color--highlight);
+		background-color: var(--wp--preset--color--background);
+		color: var(--wp--preset--color--text)
+	}
 }
