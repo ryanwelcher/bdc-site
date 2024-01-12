@@ -67,7 +67,7 @@ add_action(
 							'handle' => "chef-kiss-core-{$slug}",
 							'src'    => get_parent_theme_file_uri( "{$relative}.css"  ),
 							'path'   => get_parent_theme_file_path( "{$relative}.css" ),
-							'deps'   => $asset['dependencies'],
+							'deps'   => array_merge( $asset['dependencies'] ),
 							'ver'    => $asset['version'],
 						)
 					);

@@ -12,6 +12,7 @@
 
 // Enqueue the view file.
 if ( function_exists( 'gutenberg_enqueue_module' ) ) {
+	wp_enqueue_script( 'wp-api-fetch' );
 	gutenberg_enqueue_module( 'vote-button-view' );
 }
 
