@@ -41,8 +41,6 @@ __webpack_require__.r(__webpack_exports__);
  * @return {WPElement} Element to render.
  */
 function Edit({
-  attributes,
-  setAttributes,
   context: {
     postType,
     postId
@@ -54,11 +52,10 @@ function Edit({
       meta
     }
   } = (0,_wordpress_core_data__WEBPACK_IMPORTED_MODULE_2__.useEntityRecord)('postType', postType, postId);
-  console.log(meta);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     ...blockProps
   }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Skill Level: ', 'bdc'), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: `level-${meta?.level}`
+    className: `level-${meta?.level || '2'}` || 'level-2'
   }));
 }
 

@@ -8,10 +8,6 @@
   position: relative;
   border: 1px solid var(--wp--preset--color--highlight);
 }
-.wp-block-group.recipe-container .number-value,
-.wp-block-columns.recipe-container .number-value {
-  color: var(--wp--preset--color--highlight);
-}
 .wp-block-group.conference-header,
 .wp-block-columns.conference-header {
   box-shadow: var(--wp--custom--chef-kiss--box-shadow);

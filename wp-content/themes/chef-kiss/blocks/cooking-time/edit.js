@@ -17,22 +17,18 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit( {
-	attributes,
-	setAttributes,
-	context: { postType, postId },
-} ) {
+export default function Edit( { context: { postType, postId } } ) {
 	const blockProps = useBlockProps();
 
 	const {
 		record: { meta },
 	} = useEntityRecord( 'postType', postType, postId );
-	console.log( meta );
+
 	return (
 		<p { ...blockProps }>
 			{ __( 'Prep Time: ', 'bdc' ) }
 			<span className="number-value">
-				{ `${ meta?.time } minutes` || 'N/A' }
+				{ `${ meta?.level || 10 } minutes` || 'N/A' }
 			</span>
 		</p>
 	);

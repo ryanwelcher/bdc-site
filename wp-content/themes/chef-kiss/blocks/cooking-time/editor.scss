@@ -4,9 +4,9 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-block-developers-cookbook-interactive-block input[type="text"] {
-	font-size: 1em;
-	color: inherit;
-	background: inherit;
-	border: 0;
+.wp-block-chef-kiss-cooking-time {
+
+	span.number-value {
+		color: var(--wp--preset--color--highlight);
+	}
 }

@@ -7,10 +7,8 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
-.wp-block-block-developers-cookbook-interactive-block {
-  font-size: 1em;
-  background: rgba(255, 255, 0, 0.1019607843);
-  padding: 1em;
+.wp-block-chef-kiss-cooking-time span.number-value {
+  color: var(--wp--preset--color--highlight);
 }
 
 /*# sourceMappingURL=style-index.css.map*/
