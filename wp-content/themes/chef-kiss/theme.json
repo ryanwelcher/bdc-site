@@ -76,30 +76,23 @@
 						{
 							"fontFamily": "Jost",
 							"fontStyle": "normal",
-							"fontWeight": "normal",
+							"fontWeight": "100 900",
 							"src": [
-								"file:./assets/fonts/Jost/Jost-VariableFont_wght"
+								"file:./assets/fonts/Jost/Jost-VariableFont_wght.woff2"
+							]
+						},
+						{
+							"fontFamily": "Jost",
+							"fontStyle": "italic",
+							"fontWeight": "100 900",
+							"src": [
+								"file:./assets/fonts/Jost/Jost-Italic-VariableFont_wght.woff2"
 							]
 						}
 					],
 					"fontFamily": "Jost",
 					"name": "Jost",
 					"slug": "jost"
-				},
-				{
-					"fontFace": [
-						{
-							"fontFamily": "Prata",
-							"fontStyle": "normal",
-							"fontWeight": "bold",
-							"src": [
-								"file:./assets/fonts/Prata/Prata-Regular.ttf"
-							]
-						}
-					],
-					"fontFamily": "Prata",
-					"name": "Prata",
-					"slug": "prata"
 				},
 				{
 					"fontFace": [
@@ -139,11 +132,6 @@
 					"fontFamily": "Space Mono",
 					"name": "Space Mono",
 					"slug": "space-mono"
-				},
-				{
-					"fontFamily": "Montserrat, sans-serif",
-					"name": "Montserrat",
-					"slug": "montserrat"
 				}
 			]
 		},
@@ -187,14 +175,7 @@
 				},
 				"css": "& p {margin:0}"
 			},
-			"core/post-excerpt": {
-				"color": {
-					"text": "var( --wp--preset--color--card )"
-				},
-				"typography": {
-					"fontSize": "var( --wp--preset--font-size--base )"
-				}
-			},
+			"core/post-excerpt": {},
 			"core/image": {
 				"border": {
 					"color": "var( --wp--preset--color--highlight )",
@@ -207,7 +188,7 @@
 			"text": "var( --wp--preset--color--text )"
 		},
 		"typography": {
-			"fontFamily": "var( --wp--preset--font-family--jost )",
+			"fontFamily": "var( --wp--preset--font-family--prata )",
 			"fontSize": "var( --wp--preset--font-size--base )"
 		},
 		"elements": {
@@ -217,7 +198,9 @@
 				},
 				"typography": {
 					"fontFamily": "var( --wp--preset--font-family--jost )",
-					"fontSize": "var( --wp--preset--font-size--xl )"
+					"fontSize": "var( --wp--preset--font-size--xl )",
+					"fontWeight": "100",
+					"fontStyle": "italic"
 				}
 			},
 			"link": {
