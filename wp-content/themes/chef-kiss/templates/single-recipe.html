@@ -1,0 +1,25 @@
+<!-- wp:template-part {"slug":"header","theme":"chef-kiss","tagName":"header"} /-->
+
+<!-- wp:query {"queryId":11,"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true}} -->
+<div class="wp-block-query"><!-- wp:post-template -->
+	<!-- wp:group {"style":{"border":{"radius":{"topLeft":"1rem"}},"spacing":{"blockGap":"var:preset|spacing|30","padding":{"right":"var:preset|spacing|30","left":"var:preset|spacing|30","top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}}},"backgroundColor":"background","className":"recipe-container","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group recipe-container has-background-background-color has-background" style="border-top-left-radius:1rem;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--30)"><!-- wp:post-title /-->
+
+	<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+	<div class="wp-block-group"><!-- wp:chef-kiss/level /-->
+
+	<!-- wp:chef-kiss/cooking-time /--></div>
+	<!-- /wp:group -->
+
+	<!-- wp:post-content /--></div>
+	<!-- /wp:group -->
+	<!-- /wp:post-template -->
+
+	<!-- wp:query-no-results -->
+	<!-- wp:paragraph {"placeholder":"Add text or blocks that will display when a query returns no results."} -->
+	<p></p>
+	<!-- /wp:paragraph -->
+	<!-- /wp:query-no-results --></div>
+	<!-- /wp:query -->
+
+	<!-- wp:template-part {"slug":"footer","theme":"chef-kiss","tagName":"footer"} /-->

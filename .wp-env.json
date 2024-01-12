@@ -1,3 +1,7 @@
 {
-	"themes": ["./wp-content/themes/chef-kiss"]
+	"themes": ["./wp-content/themes/chef-kiss"],
+	"plugins": [
+		"https://downloads.wordpress.org/plugin/advanced-query-loop.zip",
+		"https://downloads.wordpress.org/plugin/code-block-pro.zip"
+	]
 }
