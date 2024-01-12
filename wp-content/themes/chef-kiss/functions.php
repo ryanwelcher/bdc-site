@@ -19,3 +19,4 @@ require_once THEME_INC_PATH . 'taxonomies.php';
 require_once THEME_INC_PATH . 'enqueues.php';
 require_once THEME_INC_PATH . 'blocks.php';
 require_once THEME_INC_PATH . 'rest-api.php';
+require_once THEME_INC_PATH . 'results.php';

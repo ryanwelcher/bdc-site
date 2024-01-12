@@ -6,6 +6,11 @@
 			"title": "Single Conference",
 			"name": "single-conference",
 			"postTypes": [ "conference" ]
+		},
+		{
+			"title": "Conference results",
+			"name": "results",
+			"postTypes": [ "conference" ]
 		}
 	],
 	"title": "Chef Kiss Theme",
@@ -223,6 +228,11 @@
 			"area": "footer",
 			"name": "footer",
 			"title": "Footer"
+		},
+		{
+			"area": "uncategorized",
+			"name": "results",
+			"title": "Results"
 		}
 	]
 }
