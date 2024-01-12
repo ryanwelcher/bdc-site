@@ -25,6 +25,7 @@ wp_store(
 );
 
 
+
 global $post;
 $context = array(
 	'time'      => intval( get_post_meta( $post->ID, 'time', true ) ),
@@ -33,7 +34,7 @@ $context = array(
 	'added'     => false,
 	'addCTA'    => __( 'Add Recipe', 'chef-kiss' ),
 	'removeCTA' => __( 'Remove Recipe', 'chef-kiss' ),
-
+	'user'      => get_current_user_id(),
 );
 
 ?>

@@ -30,7 +30,7 @@ wp_store(
 			'selectedRecipes' => array(),
 			'totalDuration'   => $duration,
 			'timeAssigned'    => 0,
-			'uniqueId'        => $unique_id,
+			'conference'      => $post->ID,
 		),
 	)
 );

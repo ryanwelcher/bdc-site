@@ -31,7 +31,7 @@ class BDC_REST_API extends WP_REST_Controller {
 				array(
 					'methods'             => \WP_REST_Server::CREATABLE,
 					'callback'            => array( $this, 'register_vote' ),
-					'permission_callback' => '__return_true'
+					'permission_callback' => '__return_true',
 				),
 			)
 		);
@@ -49,6 +49,7 @@ class BDC_REST_API extends WP_REST_Controller {
 		$recipe_id     = $request['recipe_id'];
 		$action        = $request['action'] ?? 'add';
 
+		// die( print_r($request));
 		$rtn = false;
 
 		// Return an error if ids are missing.
@@ -57,15 +58,15 @@ class BDC_REST_API extends WP_REST_Controller {
 		}
 
 		// Generate the term name - we want to be able query for a count of terms for each recipe.
-		$term_name = "{$user_id}_{$recipe_id}";
+		$term_name = "{$user_id}_{$recipe_id}_{$conference_id}";
 
 		// Check the action and act accordingly.
 		switch ( $action ) {
 			case 'add':
-				$rtn = $this->add_vote( $term_name, $conference_id );
+				$rtn = $this->add_vote( $term_name, $recipe_id );
 				break;
 			case 'remove':
-				$rtn = $this->remove_vote( $term_name, $conference_id );
+				$rtn = $this->remove_vote( $term_name, $recipe_id );
 				break;
 			default:
 				return new \WP_Error( 'Unknown action', 'Must be either  "add" or "remove"' );
@@ -90,8 +91,8 @@ class BDC_REST_API extends WP_REST_Controller {
 	 * @param {string}  $term_name     The name of the term to create and assign.
 	 * @param {integer} $conference_id The post ID of the conference.
 	 */
-	private function add_vote( $term_name, $conference_id ) {
-		return wp_set_object_terms( $conference_id, $term_name, 'votes', true );
+	private function add_vote( $term_name, $recipe_id ) {
+		return wp_set_object_terms( $recipe_id, $term_name, 'votes', true );
 	}
 
 	/**
