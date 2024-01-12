@@ -199,8 +199,7 @@
 				"typography": {
 					"fontFamily": "var( --wp--preset--font-family--jost )",
 					"fontSize": "var( --wp--preset--font-size--xl )",
-					"fontWeight": "100",
-					"fontStyle": "italic"
+					"fontWeight": "600"
 				}
 			},
 			"link": {
