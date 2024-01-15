@@ -1,8 +1,15 @@
 <!-- wp:template-part {"slug":"header","theme":"chef-kiss","tagName":"header"} /-->
+
 <!-- wp:group {"style":{"position":{"type":"sticky","top":"0px"},"border":{"radius":{"topLeft":"2rem"}},"spacing":{"blockGap":"0","margin":{"bottom":"var:preset|spacing|60"}},"dimensions":{"minHeight":"0px"}},"className":"conference-header","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 <div class="wp-block-group conference-header" style="border-top-left-radius:2rem;min-height:0px;margin-bottom:var(--wp--preset--spacing--60)"><!-- wp:post-title /-->
 
-	<h2>Voting Results</h2></div>
+	<!-- wp:heading -->
+	<h2 class="wp-block-heading">Voting Results</h2>
+	<!-- /wp:heading --></div>
 	<!-- /wp:group -->
 
-<!-- wp:template-part {"slug":"footer","theme":"chef-kiss","tagName":"footer"} /-->
+	<!-- wp:group {"layout":{"type":"constrained","contentSize":"100%"}} -->
+	<div class="wp-block-group"><!-- wp:chef-kiss/results /--></div>
+	<!-- /wp:group -->
+
+	<!-- wp:template-part {"slug":"footer","theme":"chef-kiss","tagName":"footer"} /-->

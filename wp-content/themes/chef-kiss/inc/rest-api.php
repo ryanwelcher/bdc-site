@@ -35,6 +35,71 @@ class BDC_REST_API extends WP_REST_Controller {
 				),
 			)
 		);
+		register_rest_route(
+			self::NAMESPACE,
+			'/results',
+			array(
+				array(
+					'methods'             => \WP_REST_Server::READABLE,
+					'callback'            => array( $this, 'get_vote_results' ),
+					'permission_callback' => '__return_true',
+				),
+			)
+		);
+	}
+
+
+	/**
+	 * Get the voting results for a given conference
+	 *
+	 * @param WP_REST_Request $request Full data about the request.
+	 * @return WP_Error|WP_REST_Response
+	 */
+	public function get_vote_results( $request ) {
+		$conference_id = $request['cid']; // If no cid passed, get all votes
+		$rtn           = array();
+
+
+		$query_params = array(
+			'post_type' => 'recipe',
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'votes',
+					'operator' => 'EXISTS'
+				)
+			)
+		);
+
+		$query = new \WP_query( $query_params );
+
+		if ( $query->have_posts() ) {
+			$rtn['totalVotes'] = wp_count_terms( array( 'taxonomy' => 'votes' ) );
+			$rtn['votes'] = array();
+			foreach ( $query->posts as $recipe ) {
+				$every_vote_ever = get_the_terms( $recipe->ID, 'votes');
+
+				if ( isset( $conference_id )  ) {
+					// return;
+				} else {
+					// $votes = count( $every_vote_ever );
+				}
+
+				$rtn['votes'][] = array(
+					'id'    => $recipe->ID,
+					'title' => $recipe->post_title,
+					'votes' => count( $every_vote_ever )
+				);
+			}
+		}
+
+		return new \WP_REST_Response(
+			array(
+				'status' => 'success',
+				'data'   => $rtn,
+			)
+		);
+
+
 	}
 
 	/**

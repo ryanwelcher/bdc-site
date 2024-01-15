@@ -1,0 +1,41 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-chef-kiss-results {
+
+	li.vote-bar {
+		display: flex;
+		list-style: none;
+		margin-bottom: 1rem;
+
+		h3 {
+			width: 25%;
+			text-align: right;
+		}
+
+		.vote-progress {
+			border: 1px solid var(--wp--preset--color--highlight);
+			box-shadow: var(--wp--custom--chef-kiss--box-shadow);
+			background-color: var(--wp--preset--color--background);
+			margin-left: 1rem;
+			border-top-left-radius: 1rem;
+			width: 100%;
+
+			.vote-progress-inner {
+				height: 100%;
+				background-color: var(--wp--preset--color--highlight);
+				border-left: 1px solid var(--wp--preset--color--highlight);
+				border: none;
+				display: flex;
+				align-items: center;
+				padding-left: 1rem;
+				box-sizing: border-box;
+				border-top-left-radius: 0.9rem;
+			}
+		}
+	}
+}

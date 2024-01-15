@@ -201,7 +201,9 @@
 			"heading": {
 				"color": {
 					"text": "var( --wp--preset--color--highlight )"
-				},
+				}
+			},
+			"h2": {
 				"typography": {
 					"fontSize": "var( --wp--preset--font-size--xl )",
 					"fontWeight": "600"

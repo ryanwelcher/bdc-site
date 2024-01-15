@@ -52,18 +52,5 @@ add_action(
 			array(),
 			$assets['version']
 		);
-
-		// Load the Results screen.
-		if ( is_singular( 'conference' ) && isset( $wp_query->query_vars['results'] ) ) {
-			$results_assets_file = get_stylesheet_directory() . '/build/results.asset.php';
-			$results_assets      = include $results_assets_file;
-			wp_enqueue_script(
-				'results-scripts',
-				get_stylesheet_directory_uri() . '/build/results.js',
-				$results_assets['dependencies'],
-				$results_assets['version'],
-				true
-			);
-		}
 	}
 );
