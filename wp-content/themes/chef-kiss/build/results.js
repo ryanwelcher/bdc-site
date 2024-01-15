@@ -12,6 +12,16 @@ module.exports = window["React"];
 
 /***/ }),
 
+/***/ "@wordpress/core-data":
+/*!**********************************!*\
+  !*** external ["wp","coreData"] ***!
+  \**********************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["coreData"];
+
+/***/ }),
+
 /***/ "@wordpress/dom-ready":
 /*!**********************************!*\
   !*** external ["wp","domReady"] ***!
@@ -113,13 +123,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/dom-ready */ "@wordpress/dom-ready");
 /* harmony import */ var _wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/core-data */ "@wordpress/core-data");
+/* harmony import */ var _wordpress_core_data__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_core_data__WEBPACK_IMPORTED_MODULE_3__);
 
 /**
  * WordPress dependencies
  */
 
 
-const ResultsScreen = () => {
+
+const ResultsScreen = ({
+  conference
+}) => {
+  const {
+    records,
+    isResolving
+  } = (0,_wordpress_core_data__WEBPACK_IMPORTED_MODULE_3__.useEntityRecords)('taxonomy', 'votes');
+  if (isResolving) {
+    return 'Loading...';
+  }
+  const votes = records.filter(vote => {});
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "results"
   }, "RESULTS");
@@ -127,10 +150,15 @@ const ResultsScreen = () => {
 
 // Check if createRoot is available. This addresses if React 18 is available or not as 6.2 shipped with React 18.
 _wordpress_dom_ready__WEBPACK_IMPORTED_MODULE_2___default()(() => {
+  const rootEl = document.getElementById('results-display');
   if (_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createRoot) {
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createRoot)(document.getElementById('results-display')).render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResultsScreen, null));
+    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createRoot)(document.getElementById('results-display')).render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResultsScreen, {
+      conference: rootEl.dataset?.conference
+    }));
   } else {
-    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.render)((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResultsScreen, null), document.getElementById('results-display'));
+    (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.render)((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(ResultsScreen, {
+      conference: rootEl.dataset?.conference
+    }), document.getElementById('results-display'));
   }
 });
 })();

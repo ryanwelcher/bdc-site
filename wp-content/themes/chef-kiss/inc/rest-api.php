@@ -58,7 +58,7 @@ class BDC_REST_API extends WP_REST_Controller {
 		}
 
 		// Generate the term name - we want to be able query for a count of terms for each recipe.
-		$term_name = "{$user_id}_{$recipe_id}_{$conference_id}";
+		$term_name = "user_{$user_id}_conference_{$conference_id}";
 
 		// Check the action and act accordingly.
 		switch ( $action ) {

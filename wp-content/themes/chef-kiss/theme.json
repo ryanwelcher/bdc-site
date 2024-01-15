@@ -8,9 +8,14 @@
 			"postTypes": [ "conference" ]
 		},
 		{
-			"title": "Conference results",
-			"name": "results",
-			"postTypes": [ "conference" ]
+			"title": "Recipe archive",
+			"name": "archive-recipe",
+			"postTypes": [ "recipe" ]
+		},
+		{
+			"title": "Single Recipe",
+			"name": "single-recipe",
+			"postTypes": [ "recipe" ]
 		}
 	],
 	"title": "Chef Kiss Theme",
