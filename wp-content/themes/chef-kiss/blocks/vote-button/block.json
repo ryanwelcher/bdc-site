@@ -12,7 +12,7 @@
 		"interactivity": true,
 		"align": true
 	},
-	"usesContext": [ "postId" ],
+	"usesContext": [ "postId", "queryId" ],
 	"textdomain": "vote-button",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",

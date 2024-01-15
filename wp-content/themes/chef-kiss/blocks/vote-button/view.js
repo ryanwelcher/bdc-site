@@ -8,9 +8,13 @@ const apiFetch = wp.apiFetch;
 const { state } = store( 'chef-kiss', {
 	state: {
 		get buttonCTA() {
-			const { added, addCTA, removeCTA } = getContext();
+			const { addCTA, removeCTA } = getContext();
+			return state.isSelected ? removeCTA : addCTA;
+		},
 
-			return added ? removeCTA : addCTA;
+		get isSelected() {
+			const { recipeId } = getContext();
+			return state.selectedRecipes.includes( recipeId );
 		},
 	},
 	actions: {
@@ -55,6 +59,10 @@ const { state } = store( 'chef-kiss', {
 			} else {
 				context.disabled = context.time > state.allowedValue;
 			}
+		},
+		isAdded: () => {
+			const context = getContext();
+			context.added = state.isSelected;
 		},
 	},
 } );

@@ -17,7 +17,7 @@ if ( function_exists( 'gutenberg_enqueue_module' ) ) {
 }
 
 
-wp_store(
+$state = wp_store(
 	array(
 		'chef-kiss' => array(
 			'buttonCTA' => __( 'Add Recipe', 'chef-kiss' ),
@@ -25,19 +25,14 @@ wp_store(
 	)
 );
 
-
-
-global $post;
 $context = array(
-	'time'      => intval( get_post_meta( $post->ID, 'time', true ) ),
+	'time'      => intval( get_post_meta( $block->context['postId'], 'time', true ) ),
 	'disabled'  => false,
 	'recipeId'  => $block->context['postId'],
-	'added'     => false,
 	'addCTA'    => __( 'Add Recipe', 'chef-kiss' ),
 	'removeCTA' => __( 'Remove Recipe', 'chef-kiss' ),
 	'user'      => get_current_user_id(),
 );
-
 ?>
 
 <div
@@ -45,6 +40,7 @@ $context = array(
 	data-wp-interactive='{ "namespace": "chef-kiss" }'
 	data-wp-context='<?php echo wp_json_encode( $context ); ?>'
 	data-wp-watch='callbacks.canBeAdded'
+	data-wp-init='callbacks.isAdded'
 >
 <button class="wp-element-button" data-wp-on--click="actions.vote" data-wp-bind--disabled="context.disabled" data-wp-text='state.buttonCTA'></button>
 </div>

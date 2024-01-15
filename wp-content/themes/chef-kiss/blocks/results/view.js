@@ -1,21 +1,23 @@
 /**
  * WordPress dependencies
  */
-import { createRoot, render } from '@wordpress/element';
+import { createRoot, render, useEffect, useState } from '@wordpress/element';
 import domReady from '@wordpress/dom-ready';
 import apiFetch from '@wordpress/api-fetch';
-import { useEffect, useState } from '@wordpress/element';
+import { _n } from '@wordpress/i18n';
 
 const ResultsScreen = ( { conference } ) => {
 	const [ votes, setVotes ] = useState( [] );
 	const [ totalVotes, setTotalVotes ] = useState( 0 );
+	console.log( conference );
 
-	const getVotes = () => {
-		console.log( 'fetching' );
+	const getVotes = ( conference ) => {
+		console.log( `fetching votes for ${ conference }` );
 		apiFetch( {
 			path: '/bdc/v1/results',
+			method: 'POST',
+			data: { cid: conference },
 		} ).then( ( { status, data } ) => {
-			// console.log( { status, data } );
 			const { totalVotes, votes } = data;
 			const sorted = votes.sort(
 				( a, b ) => parseFloat( b.votes ) - parseFloat( a.votes )
@@ -26,9 +28,9 @@ const ResultsScreen = ( { conference } ) => {
 	};
 	useEffect( () => {
 		const interval = setInterval( () => {
-			getVotes();
+			getVotes( conference );
 		}, 3000 );
-		getVotes();
+		getVotes( conference );
 		return () => clearInterval( interval );
 	}, [] );
 
@@ -50,7 +52,11 @@ const ResultsScreen = ( { conference } ) => {
 									) }%`,
 								} }
 							>
-								{ `${ votes } Votes` }
+								{ _n(
+									`${ votes } Vote`,
+									`${ votes } Votes`,
+									votes
+								) }
 							</div>
 						</div>
 					</li>
@@ -65,11 +71,11 @@ domReady( () => {
 	const rootEl = document.getElementById( 'results-display' );
 	if ( createRoot ) {
 		createRoot( document.getElementById( 'results-display' ) ).render(
-			<ResultsScreen conference={ rootEl.dataset?.conference } />
+			<ResultsScreen conference={ rootEl.dataset?.cid } />
 		);
 	} else {
 		render(
-			<ResultsScreen conference={ rootEl.dataset?.conference } />,
+			<ResultsScreen conference={ rootEl.dataset?.cid } />,
 			document.getElementById( 'results-display' )
 		);
 	}

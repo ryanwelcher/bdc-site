@@ -17,20 +17,44 @@ if ( function_exists( 'gutenberg_enqueue_module' ) ) {
 
 global $post;
 
-$duration  = intval( get_post_meta( $post->ID, 'duration', true ) );
-$unique_id = wp_unique_id();
+$duration             = intval( get_post_meta( $post->ID, 'duration', true ) );
+$unique_id            = wp_unique_id();
+$conference_term_name = 'user_' . get_current_user_id() . '_conference_' . $post->ID . '_';
+
+$selected_recipes = new \WP_Query(
+	array(
+		'post_type' => 'recipe',
+		'fields'    => 'ids',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'votes',
+				'field'    => 'name',
+				'terms'    => $conference_term_name,
+			),
+		),
+	)
+);
+
+
+$assigned = 0;
+if ( $selected_recipes->have_posts() ) {
+	foreach ( $selected_recipes->posts as $recipe ) {
+		$assigned += intval( get_post_meta( $recipe, 'time', true ) );
+	}
+}
 
 wp_store(
 	array(
 		'chef-kiss' => array(
 			'duration'        => $duration,
-			'assigned'        => 0,
+			'assigned'        => $assigned,
 			'allowedValue'    => $duration,
 			'votingOpen'      => true,
-			'selectedRecipes' => array(),
+			'selectedRecipes' => $selected_recipes->have_posts() ? $selected_recipes->posts : array(),
 			'totalDuration'   => $duration,
 			'timeAssigned'    => 0,
 			'conference'      => $post->ID,
+			'term'            => $conference_term_name,
 		),
 	)
 );

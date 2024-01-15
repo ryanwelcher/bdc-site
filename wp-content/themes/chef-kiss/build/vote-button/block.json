@@ -13,7 +13,8 @@
     "align": true
   },
   "usesContext": [
-    "postId"
+    "postId",
+    "queryId"
   ],
   "textdomain": "vote-button",
   "editorScript": "file:./index.js",

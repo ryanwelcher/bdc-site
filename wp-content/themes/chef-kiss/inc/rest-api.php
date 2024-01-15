@@ -40,7 +40,7 @@ class BDC_REST_API extends WP_REST_Controller {
 			'/results',
 			array(
 				array(
-					'methods'             => \WP_REST_Server::READABLE,
+					'methods'             => \WP_REST_Server::CREATABLE,
 					'callback'            => array( $this, 'get_vote_results' ),
 					'permission_callback' => '__return_true',
 				),
@@ -58,37 +58,44 @@ class BDC_REST_API extends WP_REST_Controller {
 	public function get_vote_results( $request ) {
 		$conference_id = $request['cid']; // If no cid passed, get all votes
 		$rtn           = array();
-
-
-		$query_params = array(
+		$query_params  = array(
 			'post_type' => 'recipe',
 			'tax_query' => array(
 				array(
 					'taxonomy' => 'votes',
-					'operator' => 'EXISTS'
-				)
-			)
+					'operator' => 'EXISTS',
+				),
+			),
 		);
 
 		$query = new \WP_query( $query_params );
 
 		if ( $query->have_posts() ) {
 			$rtn['totalVotes'] = wp_count_terms( array( 'taxonomy' => 'votes' ) );
-			$rtn['votes'] = array();
+			$rtn['votes']      = array();
 			foreach ( $query->posts as $recipe ) {
-				$every_vote_ever = get_the_terms( $recipe->ID, 'votes');
+				$every_vote_ever = get_the_terms( $recipe->ID, 'votes' );
+				if ( isset( $conference_id ) ) {
+					$votes = array_filter(
+						$every_vote_ever,
+						function( $term ) use ( $conference_id ) {
+							return str_contains( $term->name, "conference_{$conference_id}_" );
+						}
+					);
 
-				if ( isset( $conference_id )  ) {
-					// return;
 				} else {
-					// $votes = count( $every_vote_ever );
+					$votes = $every_vote_ever;
 				}
 
-				$rtn['votes'][] = array(
-					'id'    => $recipe->ID,
-					'title' => $recipe->post_title,
-					'votes' => count( $every_vote_ever )
-				);
+				$vote_count = count( $votes );
+
+				if ( $vote_count > 0 ) {
+					$rtn['votes'][] = array(
+						'id'    => $recipe->ID,
+						'title' => $recipe->post_title,
+						'votes' => count( $votes ),
+					);
+				}
 			}
 		}
 
@@ -123,7 +130,7 @@ class BDC_REST_API extends WP_REST_Controller {
 		}
 
 		// Generate the term name - we want to be able query for a count of terms for each recipe.
-		$term_name = "user_{$user_id}_conference_{$conference_id}";
+		$term_name = "user_{$user_id}_conference_{$conference_id}_";
 
 		// Check the action and act accordingly.
 		switch ( $action ) {
