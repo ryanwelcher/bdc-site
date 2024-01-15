@@ -39,6 +39,7 @@ module.exports = {
 		...blockStylesheets(),
 		plugins: './js/plugins.js',
 		variations: './js/variations.js',
+		results: './js/results.js',
 	},
 	plugins: [
 		...defaultConfig.plugins,

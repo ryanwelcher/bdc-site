@@ -1,1 +1,33 @@
-.wp-block-chef-kiss-vote-button button{background-color:var(--wp--preset--color--highlight);border:3px solid var(--wp--preset--color--card);border-top-left-radius:.4rem;color:var(--wp--preset--color--text);font-size:var(--wp--preset--font-size--base);outline:none;padding:.5rem;text-align:center;text-transform:uppercase;transition:all .2s ease}.wp-block-chef-kiss-vote-button button:hover{color:var(--wp--preset--color--background)}.wp-block-chef-kiss-vote-button button:disabled{opacity:.5;transition:none}.wp-block-chef-kiss-vote-button button:disabled:hover{color:var(--wp--preset--color--text)}
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./blocks/vote-button/style.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-chef-kiss-vote-button button {
+  transition: all 0.2s ease;
+  color: var(--wp--preset--color--text);
+  background-color: var(--wp--preset--color--highlight);
+  border: 3px solid var(--wp--preset--color--card);
+  text-transform: uppercase;
+  text-align: center;
+  font-size: var(--wp--preset--font-size--base);
+  padding: 0.5rem;
+  outline: none;
+  border-top-left-radius: 0.4rem;
+}
+.wp-block-chef-kiss-vote-button button:hover {
+  color: var(--wp--preset--color--background);
+}
+.wp-block-chef-kiss-vote-button button:disabled {
+  transition: none;
+  opacity: 0.5;
+}
+.wp-block-chef-kiss-vote-button button:disabled:hover {
+  color: var(--wp--preset--color--text);
+}
+
+/*# sourceMappingURL=style-index.css.map*/
