@@ -21,6 +21,14 @@ $duration             = intval( get_post_meta( $post->ID, 'duration', true ) );
 $unique_id            = wp_unique_id();
 $conference_term_name = 'user_' . get_current_user_id() . '_conference_' . $post->ID . '_';
 
+$votes = get_terms(
+	[
+		'taxonomy'   => 'votes',
+		'name__like' => $conference_term_name,
+		'fields'     => 'ids',
+	]
+);
+
 $selected_recipes = new \WP_Query(
 	array(
 		'post_type' => 'recipe',
@@ -28,13 +36,11 @@ $selected_recipes = new \WP_Query(
 		'tax_query' => array(
 			array(
 				'taxonomy' => 'votes',
-				'field'    => 'name',
-				'terms'    => $conference_term_name,
+				'terms'    => $votes,
 			),
 		),
 	)
 );
-
 
 $assigned = 0;
 if ( $selected_recipes->have_posts() ) {

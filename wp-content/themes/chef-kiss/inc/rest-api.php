@@ -105,8 +105,6 @@ class BDC_REST_API extends WP_REST_Controller {
 				'data'   => $rtn,
 			)
 		);
-
-
 	}
 
 	/**
