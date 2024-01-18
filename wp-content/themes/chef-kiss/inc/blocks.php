@@ -77,34 +77,17 @@ add_action(
 	}
 );
 
-// add_filter(
-// 	'pre_render_block',
-// 	function( $pre_render, $parsed_block ) {
-// 		if ( 'core/avatar' === $parsed_block['blockName'] ) {
-// 			// var_dump( $parsed_block );
-// 			// echo '=====';
-// 		}
-// 		return $pre_render;
-// 	},
-// 	10,
-// 	2
-// );
-
 add_filter(
 	'render_block_data',
-	function(  $parsed_block ) {
-		if ( 'core/avatar' === $parsed_block['blockName'] && isset( $parsed_block['attrs']['useCurrentUser'] ) ) {
+	function( $parsed_block ) {
+		if (
+			'core/avatar' === $parsed_block['blockName'] &&
+			isset( $parsed_block['attrs']['useCurrentUser'] ) &&
+			true === $parsed_block['attrs']['useCurrentUser']
+		) {
 			$parsed_block['attrs']['userId'] = get_current_user_id();
 		}
 		return $parsed_block;
 	},
 	10,
 );
-
-
-// add_filter(
-// 	'render_block_core/avatar',
-// 	function( $block_content ) {
-// 		return $block_content;
-// 	}
-// );

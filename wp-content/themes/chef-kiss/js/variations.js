@@ -5,8 +5,6 @@ import { registerBlockVariation } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
 import { addFilter } from '@wordpress/hooks';
 
-const LOGGED_IN_USER = 'logged-in-user';
-
 addFilter(
 	'blocks.registerBlockType',
 	'chef-kiss/avatar-block',
@@ -29,8 +27,9 @@ addFilter(
 );
 
 registerBlockVariation( 'core/avatar', {
-	name: LOGGED_IN_USER,
+	name: 'logged-in-user',
 	title: __( 'Logged In User', 'chef-kiss' ),
+	description: __( 'Display the avatar of the current user.', 'chef-kiss' ),
 	isActive: [ 'useCurrentUser' ],
 	attributes: {
 		useCurrentUser: true,
@@ -38,5 +37,5 @@ registerBlockVariation( 'core/avatar', {
 		style: { border: { width: '4px', radius: '100px' } },
 		borderColor: 'highlight',
 	},
-	scope: [ 'inserter', 'transform' ],
+	scope: [ 'inserter' ],
 } );

@@ -1,7 +1,11 @@
 <!-- wp:template-part {"slug":"header","theme":"chef-kiss","tagName":"header"} /-->
 
 <!-- wp:group {"style":{"position":{"type":"sticky","top":"0px"},"border":{"radius":{"topLeft":"2rem"}},"spacing":{"blockGap":"0","margin":{"bottom":"var:preset|spacing|60"}},"dimensions":{"minHeight":"0px"}},"className":"conference-header","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
-<div class="wp-block-group conference-header" style="border-top-left-radius:2rem;min-height:0px;margin-bottom:var(--wp--preset--spacing--60)"><!-- wp:post-title /-->
+<div class="wp-block-group conference-header" style="border-top-left-radius:2rem;min-height:0px;margin-bottom:var(--wp--preset--spacing--60)"><!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+	<div class="wp-block-group"><!-- wp:avatar {"size":100,"style":{"border":{"width":"4px","radius":"100px"}},"borderColor":"highlight","useCurrentUser":true} /-->
+
+	<!-- wp:post-title /--></div>
+	<!-- /wp:group -->
 
 	<!-- wp:chef-kiss/time-remaining {"style":{"layout":{"selfStretch":"fixed","flexSize":"33%"}}} /--></div>
 	<!-- /wp:group -->
@@ -21,8 +25,10 @@
 	<!-- /wp:group --></div>
 	<!-- /wp:group -->
 
+	<!-- wp:post-terms {"term":"ingredients","textAlign":"left","prefix":"Ingredients: ","style":{"layout":{"selfStretch":"fill","flexSize":null},"elements":{"link":{"color":{"text":"var:preset|color|text"}}},"spacing":{"padding":{"right":"2rem","left":"2rem"}}},"textColor":"highlight"} /-->
+
 	<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"1rem","left":"2rem","right":"2rem"},"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}},"border":{"top":{"color":"var:preset|color|highlight","width":"1px"}},"dimensions":{"minHeight":""}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group" style="border-top-color:var(--wp--preset--color--highlight);border-top-width:1px;margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20);padding-top:var(--wp--preset--spacing--40);padding-right:2rem;padding-bottom:1rem;padding-left:2rem"><!-- wp:post-excerpt {"showMoreOnNewLine":false,"excerptLength":75} /-->
+	<div class="wp-block-group" style="border-top-color:var(--wp--preset--color--highlight);border-top-width:1px;margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20);padding-top:var(--wp--preset--spacing--40);padding-right:2rem;padding-bottom:1rem;padding-left:2rem"><!-- wp:post-excerpt {"showMoreOnNewLine":false,"excerptLength":75,"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}}} /-->
 
 	<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"right"}} -->
 	<div class="wp-block-group"><!-- wp:chef-kiss/vote-button {"align":"wide"} /--></div>
