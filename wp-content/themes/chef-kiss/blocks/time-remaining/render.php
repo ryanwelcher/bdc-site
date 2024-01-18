@@ -43,19 +43,18 @@ if ( $selected_recipes->have_posts() ) {
 	}
 }
 
-wp_store(
+wp_initial_state(
+	'chef-kiss',
 	array(
-		'chef-kiss' => array(
-			'duration'        => $duration,
-			'assigned'        => $assigned,
-			'allowedValue'    => $duration,
-			'votingOpen'      => true,
-			'selectedRecipes' => $selected_recipes->have_posts() ? $selected_recipes->posts : array(),
-			'totalDuration'   => $duration,
-			'timeAssigned'    => 0,
-			'conference'      => $post->ID,
-			'term'            => $conference_term_name,
-		),
+		'duration'        => $duration,
+		'assigned'        => $assigned,
+		'allowedValue'    => $duration,
+		'votingOpen'      => true,
+		'selectedRecipes' => $selected_recipes->have_posts() ? $selected_recipes->posts : array(),
+		'totalDuration'   => $duration,
+		'timeAssigned'    => 0,
+		'conference'      => $post->ID,
+		'term'            => $conference_term_name,
 	)
 );
 ?>

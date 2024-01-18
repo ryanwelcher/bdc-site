@@ -17,13 +17,7 @@ if ( function_exists( 'gutenberg_enqueue_module' ) ) {
 }
 
 
-$state = wp_store(
-	array(
-		'chef-kiss' => array(
-			'buttonCTA' => __( 'Add Recipe', 'chef-kiss' ),
-		),
-	)
-);
+$state = wp_initial_state( 'chef-kiss', array( 'buttonCTA' => __( 'Add Recipe', 'chef-kiss' ) ) );
 
 $context = array(
 	'time'      => intval( get_post_meta( $block->context['postId'], 'time', true ) ),
