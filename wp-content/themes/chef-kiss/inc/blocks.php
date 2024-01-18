@@ -91,3 +91,15 @@ add_filter(
 	},
 	10,
 );
+
+add_filter(
+	'render_block_core/avatar',
+	function( $block_content, $block ) {
+		if ( isset( $block['attrs']['useCurrentUser'] ) && true === $block['attrs']['useCurrentUser'] ) {
+			return '<div class="avatar-chef-hat"></div>' . $block_content . '';
+		}
+		return $block_content;
+	},
+	10,
+	2
+);

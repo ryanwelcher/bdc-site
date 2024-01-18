@@ -13,7 +13,22 @@
  * License:           GNU General Public License v2.0 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  */
+
+:root {
+	--chef-hat-bg: url('assets/svg/chef-hat.svg');
+}
+
 body {
 	background-image: url('assets/img/circuits.png');
 	background-size: 150px 150px;
+}
+
+.avatar-chef-hat {
+	background-image: var(--chef-hat-bg);
+    width: 6rem;
+    height: 6rem;
+    background-size: contain;
+    position: absolute;
+    top: -1.7rem;
+    left: 1.9rem;
 }

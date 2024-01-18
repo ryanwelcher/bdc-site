@@ -16,5 +16,8 @@ $cooking_time = get_post_meta( $post->ID, 'time', true );
 <div
 	<?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>
 >
-	<p>Prep Time: <span class="number-value"><?php echo esc_html( $cooking_time ); ?>mins</span></p>
+
+	<!-- <p>Prep Time: <span class="number-value"><?php echo esc_html( $cooking_time ); ?>mins</span></p> -->
+	<p>⏲️ <span class="number-value"><?php echo esc_html( sprintf( _n( '%s minute', '%s minutes', $cooking_time, 'chef-kiss' ), $cooking_time ) ); ?></span></p>
 </div>
+
