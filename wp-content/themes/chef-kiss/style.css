@@ -31,4 +31,5 @@ body {
     position: absolute;
     top: -1.7rem;
     left: 1.9rem;
+	z-index: -1;
 }
