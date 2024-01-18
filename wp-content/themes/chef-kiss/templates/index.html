@@ -1,31 +1,33 @@
 <!-- wp:template-part {"slug":"header","theme":"chef-kiss","tagName":"header"} /-->
 
-<!-- wp:group {"layout":{"type":"constrained","contentSize":"100%"}} -->
-<div class="wp-block-group"><!-- wp:query {"queryId":0,"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true,"taxQuery":null,"parents":[]},"tagName":"main","align":"full","layout":{"type":"constrained"}} -->
-	<main class="wp-block-query alignfull"><!-- wp:post-template -->
-	<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignwide"><!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"0"}},"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group alignwide"><!-- wp:post-date {"textColor":"neutral-700","fontSize":"lg"} /-->
+<!-- wp:query {"queryId":3,"query":{"perPage":50,"pages":0,"offset":0,"order":"asc","orderBy":"meta_value","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[],"postType":"recipe","meta_query":{"queries":[{"id":"6b5aa7a0-be82-44e0-8135-5119f5ffc5f6","meta_key":"time","meta_value":"","meta_compare":""}]},"exclude_current":0},"tagName":"main","namespace":"advanced-query-loop","align":"wide","layout":{"type":"default"}} -->
+<main class="wp-block-query alignwide"><!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|60"}},"layout":{"type":"grid","columnCount":3}} -->
+	<!-- wp:group {"style":{"border":{"radius":{"topLeft":"1rem","topRight":"0rem","bottomLeft":"0rem","bottomRight":"0rem"}},"spacing":{"margin":{"top":"0","bottom":"0"},"blockGap":"var:preset|spacing|20"}},"backgroundColor":"background","className":"recipe-container","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group recipe-container has-background-background-color has-background" style="border-top-left-radius:1rem;border-top-right-radius:0rem;border-bottom-left-radius:0rem;border-bottom-right-radius:0rem;margin-top:0;margin-bottom:0"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|40","padding":{"right":"0","left":"0"}}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group" style="padding-right:0;padding-left:0"><!-- wp:cover {"useFeaturedImage":true,"dimRatio":80,"overlayColor":"background","isUserOverlayColor":true,"minHeight":202,"minHeightUnit":"px","style":{"border":{"radius":{"topLeft":"1rem"}},"spacing":{"padding":{"top":"0","bottom":"0","left":"1.5rem","right":"1.5rem"},"margin":{"top":"0","bottom":"0"},"blockGap":"var:preset|spacing|20"}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-cover" style="border-top-left-radius:1rem;margin-top:0;margin-bottom:0;padding-top:0;padding-right:1.5rem;padding-bottom:0;padding-left:1.5rem;min-height:202px"><span aria-hidden="true" class="wp-block-cover__background has-background-background-color has-background-dim-80 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:post-title {"textAlign":"center","isLink":true,"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"0","left":"0","right":"0"}},"typography":{"lineHeight":"1"},"elements":{"link":{"color":{"text":"var:preset|color|highlight"}}}},"textColor":"highlight"} /-->
 
-	<!-- wp:post-title {"isLink":true} /--></div>
+	<!-- wp:post-terms {"term":"ingredients","textAlign":"center","prefix":"\u003cstrong\u003eIngredients\u003c/strong\u003e: ","style":{"layout":{"selfStretch":"fill","flexSize":null},"typography":{"textTransform":"none"},"spacing":{"margin":{"top":"1rem"}},"elements":{"link":{"color":{"text":"var:preset|color|text"}}}},"textColor":"highlight","fontSize":"base"} /--></div></div>
+	<!-- /wp:cover --></div>
 	<!-- /wp:group -->
 
-	<!-- wp:post-excerpt {"moreText":"Continue reading →","showMoreOnNewLine":false} /--></div>
+	<!-- wp:group {"style":{"spacing":{"padding":{"right":"2rem","left":"2rem","top":"0.5rem","bottom":"0.5rem"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"highlight","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+	<div class="wp-block-group has-highlight-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:0.5rem;padding-right:2rem;padding-bottom:0.5rem;padding-left:2rem"><!-- wp:chef-kiss/level /-->
+
+	<!-- wp:chef-kiss/cooking-time /--></div>
 	<!-- /wp:group -->
 
-	<!-- wp:spacer {"height":"var:preset|spacing|80"} -->
-	<div style="height:var(--wp--preset--spacing--80)" aria-hidden="true" class="wp-block-spacer"></div>
-	<!-- /wp:spacer -->
+	<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"2rem","right":"2rem"},"margin":{"top":"0","bottom":"0"}},"border":{"top":{"color":"var:preset|color|highlight","width":"1px"}},"dimensions":{"minHeight":""}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group" style="border-top-color:var(--wp--preset--color--highlight);border-top-width:1px;margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--40);padding-right:2rem;padding-bottom:var(--wp--preset--spacing--40);padding-left:2rem"><!-- wp:post-excerpt {"showMoreOnNewLine":false,"excerptLength":75,"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}}} /--></div>
+	<!-- /wp:group --></div>
+	<!-- /wp:group -->
 	<!-- /wp:post-template -->
 
-	<!-- wp:query-pagination {"paginationArrow":"arrow","layout":{"type":"flex","justifyContent":"space-between"}} -->
-	<!-- wp:query-pagination-previous /-->
-
-	<!-- wp:query-pagination-numbers /-->
-
-	<!-- wp:query-pagination-next /-->
-	<!-- /wp:query-pagination --></main>
-	<!-- /wp:query --></div>
-	<!-- /wp:group -->
+	<!-- wp:query-no-results -->
+	<!-- wp:paragraph {"placeholder":"Add text or blocks that will display when a query returns no results."} -->
+	<p></p>
+	<!-- /wp:paragraph -->
+	<!-- /wp:query-no-results --></main>
+	<!-- /wp:query -->
 
 	<!-- wp:template-part {"slug":"footer","theme":"chef-kiss","tagName":"footer"} /-->
