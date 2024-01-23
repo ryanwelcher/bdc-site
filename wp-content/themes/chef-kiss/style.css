@@ -33,3 +33,24 @@ body {
     left: 1.9rem;
 	z-index: -1;
 }
+
+.password-field {
+	box-shadow: var(--wp--custom--chef-kiss--box-shadow);
+	padding: 2rem;
+	border: 1px solid var(--wp--preset--color--highlight);
+	background-color: var(--wp--preset--color--background);
+	color: var(--wp--preset--color--text);
+	font-size: var(--wp--preset--font-size--md);
+}
+
+.submit-button {
+	margin-left: 2rem;
+	box-shadow: var(--wp--custom--chef-kiss--box-shadow);
+	border: 1px solid var(--wp--preset--color--highlight);
+	background-color: var(--wp--preset--color--highlight);
+	color: var(--wp--preset--color--text);
+	font-size: var(--wp--preset--font-size--md);
+	padding:2rem;
+	box-sizing: border-box;
+
+}

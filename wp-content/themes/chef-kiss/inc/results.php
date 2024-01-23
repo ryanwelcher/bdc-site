@@ -28,6 +28,10 @@ add_filter(
 				'title'       => 'Results',
 				'description' => 'The results page for conference voting',
 			],
+			'conference-password' => [
+				'title'       => 'Conference Password',
+				'description' => 'Password page for the conferences',
+			],
 		],
 		$types
 	)
