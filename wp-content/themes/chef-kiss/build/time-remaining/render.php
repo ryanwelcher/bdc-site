@@ -12,7 +12,7 @@
 
 // Enqueue the view file.
 if ( function_exists( 'gutenberg_enqueue_module' ) ) {
-	gutenberg_enqueue_module( 'time-remaining-view' );
+	wp_enqueue_script_module( 'time-remaining-view' );
 }
 
 global $post;
@@ -49,7 +49,7 @@ if ( $selected_recipes->have_posts() ) {
 	}
 }
 
-wp_initial_state(
+wp_interactivity_state(
 	'chef-kiss',
 	array(
 		'duration'        => $duration,

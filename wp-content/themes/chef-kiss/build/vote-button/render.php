@@ -13,11 +13,11 @@
 // Enqueue the view file.
 if ( function_exists( 'gutenberg_enqueue_module' ) ) {
 	wp_enqueue_script( 'wp-api-fetch' );
-	gutenberg_enqueue_module( 'vote-button-view' );
+	wp_enqueue_script_module( 'vote-button-view' );
 }
 
 
-$state = wp_initial_state( 'chef-kiss', array( 'buttonCTA' => __( 'Add Recipe', 'chef-kiss' ) ) );
+$state = wp_interactivity_state( 'chef-kiss', array( 'buttonCTA' => __( 'Add Recipe', 'chef-kiss' ) ) );
 
 $context = array(
 	'time'      => intval( get_post_meta( $block->context['postId'], 'time', true ) ),

@@ -1,1 +1,18 @@
-.wp-block-chef-kiss-hat .chef-hat-icon{height:6rem;left:-1rem;position:absolute;top:-2.5rem;transform:rotate(-22deg);width:6rem}
+/*!***********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./blocks/hat/editor.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-chef-kiss-hat .chef-hat-icon {
+  position: absolute;
+  top: -2.5rem;
+  width: 6rem;
+  height: 6rem;
+  left: -1rem;
+  transform: rotate(-22deg);
+}
+
+/*# sourceMappingURL=index.css.map*/

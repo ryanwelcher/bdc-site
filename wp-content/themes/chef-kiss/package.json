@@ -3,16 +3,19 @@
 	"version": "1.0.0",
 	"description": "",
 	"scripts": {
-		"build": "wp-scripts build --webpack-src-dir=blocks",
+		"build": "wp-scripts build --experimental-modules --webpack-src-dir=blocks",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
-		"start": "wp-scripts start --webpack-src-dir=blocks"
+		"start:blocks": "wp-scripts start --experimental-modules --webpack-src-dir=blocks",
+		"start:other": "wp-scripts start --config custom-webpack.config.js",
+		"start": "concurrently 'npm run start:blocks' 'npm run start:other'"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^26.12.0",
+		"@wordpress/scripts": "^27.2.0",
+		"concurrently": "^8.2.2",
 		"glob": "^10.3.10",
 		"webpack-remove-empty-scripts": "^1.0.4"
 	},

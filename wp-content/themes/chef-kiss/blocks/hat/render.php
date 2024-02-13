@@ -16,7 +16,7 @@ $context = array(
 
 // Enqueue the view file.
 if ( function_exists( 'gutenberg_enqueue_module' ) ) {
-	gutenberg_enqueue_module( 'hat-view' );
+	wp_enqueue_script_module( 'hat-view' );
 }
 
 $svg_id = "pattern_{$block->context['postId']}";

@@ -13,6 +13,8 @@ const { getWebpackEntryPoints } = require( '@wordpress/scripts/utils/config' );
 const RemoveEmptyScriptsPlugin = require( 'webpack-remove-empty-scripts' );
 const baseCoreBlocksPath = 'css/core-blocks/';
 
+// const [ scriptWebpackConfig, moduleWebpackConfig ] = defaultConfig;
+
 // Gets all of the block stylesheets, which are enqueued separately and inlined
 // into the `<head>` area by WordPress. These should not be bundled together.
 const blockStylesheets = () =>
