@@ -123,7 +123,8 @@ add_filter(
 				set_transient( $transient_name, true, 120 * MINUTE_IN_SECONDS );
 				return $template;
 			}
-				return locate_block_template( 'conference-password', 'conference-password', array( 'conference-password' ) );
+
+			return \locate_block_template( 'conference-password', 'conference-password', array( 'conference-password' ) );
 		}
 
 		return $template;
