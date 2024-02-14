@@ -32,6 +32,11 @@
 	<!-- For CI, don't fail on warnings -->
 	<config name="ignore_warnings_on_exit" value="1"/>
 
+	<rule ref="WordPress">
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+		<exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
+	</rule>
+
 	<!-- Enforce doc standards -->
 	<rule ref="WordPress-Docs">
 		<!-- Don't worry about capitalizing long lines -->
@@ -70,11 +75,13 @@
 
 		<!-- This nonce sniff almost never works right -->
 		<exclude name="WordPress.Security.NonceVerification.Missing"/>
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+
+
 	</rule>
 
 	<!-- Sets the minimum supported WP version to 4.7, which is over a year old. -->
 	<config name="minimum_supported_wp_version" value="4.7" />
-
 	<!-- Make missing translator comment a warning. -->
 	<rule ref="WordPress.WP.I18n.MissingTranslatorsComment">
 		<type>warning</type>

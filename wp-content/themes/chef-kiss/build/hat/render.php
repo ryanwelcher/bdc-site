@@ -11,23 +11,19 @@
  */
 
 $context = array(
-	'recipeId' => $block->context['postId'],
+	'recipeId'   => $block->context['postId'],
+	'isSelected' => false,
 );
-
-// Enqueue the view file.
-if ( function_exists( 'gutenberg_enqueue_module' ) ) {
-	wp_enqueue_script_module( 'hat-view' );
-}
-
-$svg_id = "pattern_{$block->context['postId']}";
+$svg_id  = "pattern_{$block->context['postId']}";
 ?>
 <div
 	<?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>
 	data-wp-interactive='{ "namespace": "chef-kiss" }'
 	data-wp-context='<?php echo wp_json_encode( $context ); ?>'
+	data-wp-watch='callbacks.isSelected'
 >
 
-	<div data-wp-bind--hidden='!selectors.isSelected'>
+	<div data-wp-bind--hidden='!context.isSelected'>
 		<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/svg/chef-hat.svg' ); ?>" height="100" alt="Chef Hat" class="chef-hat-icon">
 	</div>
 </div>

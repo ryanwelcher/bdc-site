@@ -10,11 +10,6 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 
-// Enqueue the view file.
-if ( function_exists( 'gutenberg_enqueue_module' ) ) {
-	wp_enqueue_script_module( 'time-remaining-view' );
-}
-
 global $post;
 
 $duration             = intval( get_post_meta( $post->ID, 'duration', true ) );

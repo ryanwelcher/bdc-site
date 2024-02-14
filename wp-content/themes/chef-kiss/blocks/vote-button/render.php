@@ -10,11 +10,8 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 
-// Enqueue the view file.
-if ( function_exists( 'gutenberg_enqueue_module' ) ) {
-	wp_enqueue_script( 'wp-api-fetch' );
-	wp_enqueue_script_module( 'vote-button-view' );
-}
+// Enqueue api-fetch manually because the package doesn't support modules yet
+wp_enqueue_script( 'wp-api-fetch' );
 
 
 $state = wp_interactivity_state( 'chef-kiss', array( 'buttonCTA' => __( 'Add Recipe', 'chef-kiss' ) ) );

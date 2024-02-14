@@ -4,11 +4,12 @@
 import { store, getContext } from '@wordpress/interactivity';
 
 const { state } = store( 'chef-kiss', {
-	selectors: {
+	callbacks: {
 		isSelected: () => {
 			const context = getContext();
-			console.log( state.selectedRecipes.includes( context.recipeId ) );
-			return state.selectedRecipes.includes( context.recipeId );
+			context.isSelected = state.selectedRecipes.includes(
+				context.recipeId
+			);
 		},
 	},
 } );
