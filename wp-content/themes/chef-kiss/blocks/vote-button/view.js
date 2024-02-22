@@ -57,7 +57,9 @@ const { state } = store( 'chef-kiss', {
 			if ( state.selectedRecipes.includes( context.recipeId ) ) {
 				context.disabled = false;
 			} else {
-				context.disabled = context.time > state.allowedValue;
+				// If there is not enough time to add the recipe, disable the button.
+				context.disabled =
+					context.time > state.allowedValue - state.assigned;
 			}
 		},
 		isAdded: () => {

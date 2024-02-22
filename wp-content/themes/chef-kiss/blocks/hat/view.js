@@ -7,7 +7,7 @@ const { state } = store( 'chef-kiss', {
 	callbacks: {
 		isSelected: () => {
 			const context = getContext();
-			context.isSelected = state.selectedRecipes.includes(
+			context.isHidden = ! state.selectedRecipes.includes(
 				context.recipeId
 			);
 		},

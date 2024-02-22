@@ -12,7 +12,7 @@
 
 $context = array(
 	'recipeId'   => $block->context['postId'],
-	'isSelected' => false,
+	'isHidden' => true,
 );
 $svg_id  = "pattern_{$block->context['postId']}";
 ?>
@@ -23,7 +23,7 @@ $svg_id  = "pattern_{$block->context['postId']}";
 	data-wp-watch='callbacks.isSelected'
 >
 
-	<div data-wp-bind--hidden='!context.isSelected'>
+	<div data-wp-bind--hidden='context.isHidden'>
 		<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/svg/chef-hat.svg' ); ?>" height="100" alt="Chef Hat" class="chef-hat-icon">
 	</div>
 </div>
