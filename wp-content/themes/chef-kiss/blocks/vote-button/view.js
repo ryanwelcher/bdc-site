@@ -21,13 +21,12 @@ const { state } = store( 'chef-kiss', {
 		vote: async () => {
 			const context = getContext();
 			const { time, recipeId, added, user } = context;
+			context.isVoteLoading = true;
 			if ( ! added ) {
 				state.assigned += Number( time );
-				state.allowedValue -= Number( time );
 				state.selectedRecipes.push( recipeId );
 			} else {
 				state.assigned -= Number( time );
-				state.allowedValue += Number( time );
 				state.selectedRecipes = state.selectedRecipes.filter(
 					( id ) => id !== recipeId
 				);
@@ -46,6 +45,7 @@ const { state } = store( 'chef-kiss', {
 				if ( 'success' === request.status ) {
 					context.added = ! context.added;
 				}
+				context.isVoteLoading = false;
 			} catch ( error ) {
 				console.log( error );
 			}
@@ -54,6 +54,9 @@ const { state } = store( 'chef-kiss', {
 	callbacks: {
 		canBeAdded: () => {
 			const context = getContext();
+			if ( context.isVoteLoading ) {
+				return ( context.disabled = true );
+			}
 			if ( state.selectedRecipes.includes( context.recipeId ) ) {
 				context.disabled = false;
 			} else {
