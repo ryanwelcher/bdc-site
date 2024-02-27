@@ -93,7 +93,7 @@ class BDC_REST_API extends WP_REST_Controller {
 					$rtn['votes'][] = array(
 						'id'    => $recipe->ID,
 						'title' => $recipe->post_title,
-						'votes' => count( $votes ),
+						'count' => count( $votes ),
 					);
 				}
 			}
