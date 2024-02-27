@@ -8,6 +8,11 @@
 			"postTypes": [ "conference" ]
 		},
 		{
+			"title": "Conference archive",
+			"name": "archive-conference",
+			"postTypes": [ "conference" ]
+		},
+		{
 			"title": "Recipe archive",
 			"name": "archive-recipe",
 			"postTypes": [ "recipe" ]
