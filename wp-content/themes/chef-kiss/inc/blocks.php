@@ -92,7 +92,8 @@ add_filter(
 	function( $block_content ) {
 		$links = new \WP_HTML_Tag_Processor( $block_content );
 		while ( $links->next_tag( array('tag_name' => 'A') ) ) {
-			$links->set_attribute( 'style', 'color:white' );
+			$links->set_attribute( 'style', 'color:white; text-decoration:none;' );
+			$links->remove_attribute( 'href' );
 		}
 		$block_content = $links->get_updated_html();
 		return $block_content;
