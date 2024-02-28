@@ -210,7 +210,7 @@
 			},
 			"h2": {
 				"typography": {
-					"fontSize": "var( --wp--preset--font-size--xl )",
+					"fontSize": "var( --wp--preset--font-size--lg )",
 					"fontWeight": "600"
 				}
 			},
