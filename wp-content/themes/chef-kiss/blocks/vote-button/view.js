@@ -8,7 +8,11 @@ const apiFetch = wp.apiFetch;
 const { state } = store( 'chef-kiss', {
 	state: {
 		get buttonCTA() {
-			const { addCTA, removeCTA } = getContext();
+			const { addCTA, removeCTA, isVoteLoading, savingCTA } =
+				getContext();
+			if ( isVoteLoading ) {
+				return savingCTA;
+			}
 			return state.isSelected ? removeCTA : addCTA;
 		},
 

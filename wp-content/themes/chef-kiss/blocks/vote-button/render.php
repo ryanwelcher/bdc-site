@@ -17,12 +17,14 @@ wp_enqueue_script( 'wp-api-fetch' );
 $state = wp_interactivity_state( 'chef-kiss', array( 'buttonCTA' => __( 'Add Recipe', 'chef-kiss' ) ) );
 
 $context = array(
-	'time'      => intval( get_post_meta( $block->context['postId'], 'time', true ) ),
-	'disabled'  => false,
-	'recipeId'  => $block->context['postId'],
-	'addCTA'    => __( 'Add Recipe', 'chef-kiss' ),
-	'removeCTA' => __( 'Remove Recipe', 'chef-kiss' ),
-	'user'      => get_current_user_id(),
+	'time'          => intval( get_post_meta( $block->context['postId'], 'time', true ) ),
+	'disabled'      => false,
+	'recipeId'      => $block->context['postId'],
+	'addCTA'        => __( 'Add Recipe', 'chef-kiss' ),
+	'removeCTA'     => __( 'Remove Recipe', 'chef-kiss' ),
+	'savingCTA'     => __( 'Saving...', 'chef-kiss' ),
+	'user'          => get_current_user_id(),
+	'isVoteLoading' => false,
 );
 ?>
 
