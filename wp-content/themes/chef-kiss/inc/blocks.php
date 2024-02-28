@@ -71,8 +71,7 @@ add_filter(
 			$parsed_block['attrs']['userId'] = get_current_user_id();
 		}
 		return $parsed_block;
-	},
-	10,
+	}
 );
 
 add_filter(
@@ -86,3 +85,19 @@ add_filter(
 	10,
 	2
 );
+
+// Fix the CSS specificity issues
+add_filter(
+	'render_block_core/post-terms',
+	function( $block_content ) {
+		$links = new \WP_HTML_Tag_Processor( $block_content );
+		while ( $links->next_tag( array('tag_name' => 'A') ) ) {
+			$links->set_attribute( 'style', 'color:white' );
+		}
+		$block_content = $links->get_updated_html();
+		return $block_content;
+	},
+	10,
+	2
+);
+
