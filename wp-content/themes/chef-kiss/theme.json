@@ -224,8 +224,8 @@
 			"blockGap": "1rem",
 			"margin": {
 				"bottom": "1rem",
-				"left": "5rem",
-				"right": "5rem",
+				"left": "2rem",
+				"right": "2rem",
 				"top": "1rem"
 			}
 		}
