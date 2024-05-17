@@ -73,3 +73,29 @@ function register_taxonomies() {
 
 	register_taxonomy( 'votes', array( 'recipe' ), $args );
 }
+
+add_action(
+	'admin_init',
+	function() {
+		add_filter(
+			'manage_edit-recipe_columns',
+			function( $column ) {
+				$column['vote-count'] = 'Votes';
+				return $column;
+			}
+		);
+		add_action(
+			'manage_recipe_posts_custom_column',
+			function( $column_name, $post_id ) {
+				$count = 0;
+				$terms = wp_get_post_terms( $post_id, 'votes' );
+				if ( ! is_wp_error( $terms ) ) {
+					$count = count($terms);
+				}
+				printf( _n( '%s Vote', '%s Votes', $count, 'bdc' ), $count );
+			},
+			10,
+			2
+		);
+	}
+);
