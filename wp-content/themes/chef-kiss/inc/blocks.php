@@ -71,6 +71,8 @@ add_action(
 				'title' => __( 'Block Developer\s Cookbook', 'chef-kiss' ),
 			)
 		);
+
+		return $block_categories;
 	},
 	10,
 	2
