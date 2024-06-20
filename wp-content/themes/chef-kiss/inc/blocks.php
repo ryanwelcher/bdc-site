@@ -60,6 +60,23 @@ add_action(
 	}
 );
 
+// Register a custom block category
+add_action(
+	'block_categories_all',
+	function( $block_categories ) {
+		array_push(
+			$block_categories,
+			array(
+				'slug'  => 'block-developers-cookbook',
+				'title' => __( 'Block Developer\s Cookbook', 'chef-kiss' ),
+			)
+		);
+	},
+	10,
+	2
+);
+
+
 add_filter(
 	'render_block_data',
 	function( $parsed_block ) {
