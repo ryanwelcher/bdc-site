@@ -18,11 +18,6 @@
 	--chef-hat-bg: url('assets/svg/chef-hat.svg');
 }
 
-body {
-	background-image: url('assets/img/circuits.png');
-	background-size: 150px 150px;
-}
-
 .avatar-chef-hat {
 	background-image: var(--chef-hat-bg);
     width: 6rem;

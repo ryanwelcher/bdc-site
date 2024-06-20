@@ -168,6 +168,12 @@
 		}
 	},
 	"styles": {
+		"background": {
+			"backgroundImage": {
+				"url": "file:./assets/img/circuits.png"
+			},
+			"backgroundSize": "150px 150px"
+		},
 		"blocks": {
 			"chef-kiss/time-remaining": {
 				"typography": {
