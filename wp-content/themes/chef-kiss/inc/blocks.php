@@ -68,7 +68,7 @@ add_action(
 			$block_categories,
 			array(
 				'slug'  => 'block-developers-cookbook',
-				'title' => __( 'Block Developer\s Cookbook', 'chef-kiss' ),
+				'title' => __( 'Block Developer\'s Cookbook', 'chef-kiss' ),
 			)
 		);
 
