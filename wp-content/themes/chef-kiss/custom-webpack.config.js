@@ -42,6 +42,7 @@ module.exports = {
 		plugins: './js/plugins.js',
 		variations: './js/variations.js',
 		results: './js/results.js',
+		bindings: './js/binding-sources.js',
 	},
 	plugins: [
 		...defaultConfig.plugins,

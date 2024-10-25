@@ -34,6 +34,18 @@ add_action(
 				true
 			);
 		}
+
+		$bindings_assets_file = get_stylesheet_directory() . '/build/bindings.asset.php';
+		if ( file_exists( $bindings_assets_file ) ) {
+			$assets = include $bindings_assets_file;
+			wp_enqueue_script(
+				'bdc-bindings',
+				get_stylesheet_directory_uri() . '/build/bindings.js',
+				$assets['dependencies'],
+				$assets['version'],
+				true
+			);
+		}
 	}
 );
 
