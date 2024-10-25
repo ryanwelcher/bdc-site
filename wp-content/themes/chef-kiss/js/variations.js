@@ -39,3 +39,31 @@ registerBlockVariation( 'core/avatar', {
 	},
 	scope: [ 'inserter' ],
 } );
+
+// Cooking time
+registerBlockVariation( 'core/paragraph', {
+	name: 'bdc/cooking-time',
+	title: __( 'Cooking Time', 'chef-kiss' ),
+	icon: 'media-interactive',
+	description: __( 'Display the cooking time with bindings.', 'chef-kiss' ),
+	isActive: [ 'className' ],
+	attributes: {
+		className: 'wp-block-chef-kiss-cooking-time',
+		metadata: { bindings: { content: { source: 'bdc/cooking-time' } } },
+	},
+	scope: [ 'inserter' ],
+} );
+
+// Skill level
+registerBlockVariation( 'core/paragraph', {
+	name: 'bdc/skill-level',
+	title: __( 'Level', 'chef-kiss' ),
+	icon: 'media-interactive',
+	description: __( 'Display skill level with bindings.', 'chef-kiss' ),
+	isActive: [ 'className' ],
+	attributes: {
+		className: 'wp-block-chef-kiss-level',
+		metadata: { bindings: { content: { source: 'bdc/skill-level' } } },
+	},
+	scope: [ 'inserter' ],
+} );
