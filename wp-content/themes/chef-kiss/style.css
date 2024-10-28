@@ -71,3 +71,31 @@
 		color: var(--wp--preset--color--background);
 	}
 }
+
+
+.view-result-link a {
+		transition: all .2s ease;
+		color: var(--wp--preset--color--text);
+		background-color: var(--wp--preset--color--highlight);
+		border: 3px solid var(--wp--preset--color--card);
+		text-transform: uppercase;
+		text-align: center;
+		font-size: var(--wp--preset--font-size--base);
+		padding: 0.5rem;
+		outline: none;
+		border-radius: 0;
+		border-top-left-radius: 0.4rem;
+	}
+
+	.view-result-link a:hover {
+		color: var(--wp--preset--color--background);
+	}
+
+	.view-result-link a:disabled {
+		transition: none;
+		opacity: 0.5;
+	}
+
+	.view-result-link a:disabled:hover {
+		color: var(--wp--preset--color--text);
+	}

@@ -21,8 +21,6 @@ registerPlugin( 'chef-kiss', {
 
 		const [ meta, setMeta ] = useEntityProp( 'postType', postType, 'meta' );
 
-		console.log( meta );
-
 		switch ( postType ) {
 			case 'recipe':
 				return (

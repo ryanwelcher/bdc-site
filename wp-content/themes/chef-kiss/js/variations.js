@@ -67,3 +67,29 @@ registerBlockVariation( 'core/paragraph', {
 	},
 	scope: [ 'inserter' ],
 } );
+
+// Skill level
+registerBlockVariation( 'core/button', {
+	name: 'bdc/view-results',
+	title: __( 'View results', 'chef-kiss' ),
+	description: __( 'Link to the results page', 'chef-kiss' ),
+	isActive: [ 'className' ],
+	attributes: {
+		className: 'view-result-link',
+		metadata: {
+			bindings: {
+				url: { source: 'bdc/view-results', args: { key: 'url' } },
+				text: { source: 'bdc/view-results', args: { key: 'text' } },
+				linkTarget: {
+					source: 'bdc/view-results',
+					args: { key: 'linkTarget' },
+				},
+				rel: {
+					source: 'bdc/view-results',
+					args: { key: 'rel' },
+				},
+			},
+		},
+	},
+	scope: [ 'inserter' ],
+} );

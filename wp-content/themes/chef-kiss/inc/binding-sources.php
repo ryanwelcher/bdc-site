@@ -11,7 +11,7 @@ add_action(
 		register_block_bindings_source(
 			'bdc/cooking-time',
 			array(
-				'label'              => __( 'Cooking Time', 'custom-bindings' ),
+				'label'              => __( 'Cooking Time', 'chef-kiss' ),
 				'get_value_callback' => __NAMESPACE__ . '\retrieve_cooking_time',
 				'uses_context'       => array( 'postId', 'postType' ),
 			)
@@ -20,8 +20,17 @@ add_action(
 		register_block_bindings_source(
 			'bdc/skill-level',
 			array(
-				'label'              => __( 'Skill Level', 'custom-bindings' ),
+				'label'              => __( 'Skill Level', 'chef-kiss' ),
 				'get_value_callback' => __NAMESPACE__ . '\retrieve_skill_level',
+				'uses_context'       => array( 'postId', 'postType' ),
+			)
+		);
+
+		register_block_bindings_source(
+			'bdc/view-results',
+			array(
+				'label'              => __( 'Voting results', 'chef-kiss' ),
+				'get_value_callback' => __NAMESPACE__ . '\retrieve_voting_results_url',
 				'uses_context'       => array( 'postId', 'postType' ),
 			)
 		);
@@ -40,4 +49,20 @@ function retrieve_skill_level( $source_args, $block_instance ) {
 	$level   = get_post_meta( $post_id, 'level', true );
 
 	return esc_html__( 'Skill Level:', 'chef-kiss' ) . '<span class="number-value level-' . esc_attr( $level ) . '"></span>';
+}
+
+function retrieve_voting_results_url( $source_args, $block_instance ) {
+	$post_id = $block_instance->context['postId'];
+	$url     = trailingslashit( get_permalink( $post_id ) ) . 'results';
+
+	switch ( $source_args['key'] ) {
+		case 'url':
+			return esc_url( $url );
+		case 'text':
+			return esc_html__( 'View results', 'chef-kiss' );
+		case 'linkTarget':
+			return '_blank';
+		case 'rel':
+			return 'noopener noreferrer';
+	}
 }

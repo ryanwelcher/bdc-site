@@ -2,10 +2,16 @@
 <div class="wp-block-group conference-header" style="border-top-left-radius:2rem;min-height:0px;margin-bottom:var(--wp--preset--spacing--60)"><!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap"}} -->
 	<div class="wp-block-group"><!-- wp:avatar {"size":100,"style":{"border":{"width":"4px","radius":"100px"}},"borderColor":"highlight","useCurrentUser":true} /-->
 
-	<!-- wp:post-title /--></div>
-<!-- /wp:group -->
+	<!-- wp:post-title /-->
 
-<!-- wp:chef-kiss/time-remaining {"style":{"layout":{"selfStretch":"fixed","flexSize":"33%"}}} /--></div>
-<!-- /wp:group -->
+	<!-- wp:buttons {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+	<div class="wp-block-buttons"><!-- wp:button {"metadata":{"bindings":{"url":{"source":"bdc/view-results","args":{"key":"url"}},"text":{"source":"bdc/view-results","args":{"key":"text"}}}},"className":"view-result-link"} -->
+	<div class="wp-block-button view-result-link"><a class="wp-block-button__link wp-element-button"></a></div>
+	<!-- /wp:button --></div>
+	<!-- /wp:buttons --></div>
+	<!-- /wp:group -->
+
+	<!-- wp:chef-kiss/time-remaining {"style":{"layout":{"selfStretch":"fixed","flexSize":"33%"}}} /--></div>
+	<!-- /wp:group -->
 
 <!-- wp:pattern {"slug": "chef-kiss/voting-loop"} /-->
