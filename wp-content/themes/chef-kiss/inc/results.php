@@ -24,7 +24,7 @@ add_filter(
 	'default_template_types',
 	fn( $types ) => array_merge(
 		[
-			'results' => [
+			'results'             => [
 				'title'       => 'Results',
 				'description' => 'The results page for conference voting',
 			],
