@@ -119,9 +119,23 @@ add_filter(
 	'template_include',
 	function ( $template ) {
 		global $post;
-		if ( ! is_singular( 'conference' ) || ! post_password_required( $post->ID ) ) {
+
+		// If this isn't a conference, show it.
+		if ( ! is_singular( 'conference' ) ) {
 			return $template;
 		}
+
+		// If the voting is closed, show the results.
+		if ( ! get_post_meta( $post->ID, 'voting_open', true ) ) {
+			return \locate_block_template( 'results', 'results', [ 'results' ] );
+		}
+
+		// If the conference doesn't need a password show it.
+		if ( ! post_password_required( $post->ID ) ) {
+			return $template;
+		}
+
+		// Show the conference page and deal with the password logic.
 		$user_id        = get_current_user_id();
 		$transient_name = md5( "user_{$user_id}_conference_{$post->ID}_correct_password" );
 
