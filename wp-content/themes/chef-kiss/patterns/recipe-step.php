@@ -4,6 +4,7 @@
  * Slug: chef-kiss/recipe-step
  * Description: Defines a step for a recipe
  * Block Types: core/group
+ * Categories: chef-kiss/conference-voting
  */
 
 ?>

@@ -5,6 +5,7 @@
  * Description: Displays the recipes with voting options.
  * Keywords: query
  * Block Types: core/query
+ * Categories: chef-kiss/conference-voting
  */
 
 ?>

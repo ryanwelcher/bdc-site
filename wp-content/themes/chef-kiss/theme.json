@@ -248,7 +248,12 @@
 			"title": "Footer"
 		},
 		{
-			"area": "uncategorized",
+			"area": "conference-voting",
+			"name": "conference-voting",
+			"title": "Conference voting"
+		},
+		{
+			"area": "conference-voting",
 			"name": "results",
 			"title": "Results"
 		}

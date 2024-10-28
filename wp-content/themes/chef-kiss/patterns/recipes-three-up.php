@@ -5,6 +5,7 @@
  * Description: Displays recipes in a 3 column grid
  * Keywords: query
  * Block Types: core/query
+ * Categories: chef-kiss/conference-voting
  */
 
 ?>

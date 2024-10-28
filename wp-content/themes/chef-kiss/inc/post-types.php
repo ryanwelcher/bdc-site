@@ -136,19 +136,19 @@ add_filter(
 		}
 
 		// Show the conference page and deal with the password logic.
-		$user_id        = get_current_user_id();
-		$transient_name = md5( "user_{$user_id}_conference_{$post->ID}_correct_password" );
+		// $user_id        = get_current_user_id();
+		// $transient_name = md5( "user_{$user_id}_conference_{$post->ID}_correct_password" );
 
-		if ( false === get_transient( $transient_name ) ) {
-			// Check the password
-			$pass = isset( $_POST['p'] ) ? sanitize_text_field( wp_unslash( $_POST['p'] ) ) : false;
-			if ( $pass && $pass === $post->post_password ) {
-				set_transient( $transient_name, true, 120 * MINUTE_IN_SECONDS );
-				return $template;
-			}
+		// if ( false === get_transient( $transient_name ) ) {
+		// 	// Check the password
+		// 	$pass = isset( $_POST['p'] ) ? sanitize_text_field( wp_unslash( $_POST['p'] ) ) : false;
+		// 	if ( $pass && $pass === $post->post_password ) {
+		// 		set_transient( $transient_name, true, 120 * MINUTE_IN_SECONDS );
+		// 		return $template;
+		// 	}
 
-			return \locate_block_template( 'conference-password', 'conference-password', array( 'conference-password' ) );
-		}
+		// 	return \locate_block_template( 'conference-password', 'conference-password', array( 'conference-password' ) );
+		// }
 
 		return $template;
 	}

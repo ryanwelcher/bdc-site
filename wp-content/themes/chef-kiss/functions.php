@@ -21,3 +21,30 @@ require_once THEME_INC_PATH . 'blocks.php';
 require_once THEME_INC_PATH . 'rest-api.php';
 require_once THEME_INC_PATH . 'results.php';
 require_once THEME_INC_PATH . 'binding-sources.php';
+
+
+add_filter( 'default_wp_template_part_areas', __NAMESPACE__ . '\template_part_areas' );
+
+function template_part_areas( array $areas ) {
+	$areas[] = array(
+		'area'        => 'conference-voting',
+		'area_tag'    => 'section',
+		'label'       => __( 'Conference voting', 'chef-kiss' ),
+		'description' => __( 'Template parts relate to voting', 'chef-kiss' ),
+		'icon'        => 'layout',
+	);
+
+	return $areas;
+}
+
+add_action( 'init', __NAMESPACE__ . '\register_pattern_categories' );
+
+function register_pattern_categories() {
+	register_block_pattern_category(
+		'chef-kiss/conference-voting',
+		array(
+			'label'       => __( 'Block Developer Cookbook', 'chef-kiss' ),
+			'description' => __( 'Custom patterns for Chef Kiss theme', 'chef-kiss' ),
+		)
+	);
+}
