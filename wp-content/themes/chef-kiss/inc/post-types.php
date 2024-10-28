@@ -103,22 +103,31 @@ function register_recipes() {
 			'default'      => 90,
 		)
 	);
+	register_post_meta(
+		'conference',
+		'voting_open',
+		array(
+			'show_in_rest' => true,
+			'single'       => true,
+			'type'         => 'boolean',
+			'default'      => false,
+		)
+	);
 }
 
 add_filter(
 	'template_include',
 	function ( $template ) {
 		global $post;
-		if ( ! is_singular( 'conference' ) || ! post_password_required( $post->ID ) || ! is_user_logged_in() ) {
+		if ( ! is_singular( 'conference' ) || ! post_password_required( $post->ID ) ) {
 			return $template;
 		}
 		$user_id        = get_current_user_id();
 		$transient_name = md5( "user_{$user_id}_conference_{$post->ID}_correct_password" );
 
-		// delete_transient( $transient_name );
 		if ( false === get_transient( $transient_name ) ) {
 			// Check the password
-			$pass = isset( $_POST['p'] ) ? sanitize_text_field( $_POST['p'] ) : false;
+			$pass = isset( $_POST['p'] ) ? sanitize_text_field( wp_unslash( $_POST['p'] ) ) : false;
 			if ( $pass && $pass === $post->post_password ) {
 				set_transient( $transient_name, true, 120 * MINUTE_IN_SECONDS );
 				return $template;

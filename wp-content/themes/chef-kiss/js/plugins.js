@@ -3,10 +3,14 @@
  */
 import { registerPlugin } from '@wordpress/plugins';
 import { __ } from '@wordpress/i18n';
-import { PluginDocumentSettingPanel } from '@wordpress/edit-post';
+import { PluginDocumentSettingPanel } from '@wordpress/editor';
 import { useSelect } from '@wordpress/data';
 import { useEntityProp } from '@wordpress/core-data';
-import { __experimentalNumberControl as NumberControl } from '@wordpress/components';
+import {
+	__experimentalNumberControl as NumberControl,
+	ToggleControl,
+	BaseControl,
+} from '@wordpress/components';
 
 registerPlugin( 'chef-kiss', {
 	render: () => {
@@ -16,6 +20,8 @@ registerPlugin( 'chef-kiss', {
 		);
 
 		const [ meta, setMeta ] = useEntityProp( 'postType', postType, 'meta' );
+
+		console.log( meta );
 
 		switch ( postType ) {
 			case 'recipe':
@@ -54,6 +60,18 @@ registerPlugin( 'chef-kiss', {
 							value={ meta?.duration }
 							onChange={ ( value ) =>
 								setMeta( { ...meta, duration: value } )
+							}
+						/>
+						<br />
+						<ToggleControl
+							__nextHasNoMarginBottom
+							label={ __( 'Allow voting', 'chef-kiss' ) }
+							checked={ meta?.voting_open }
+							onChange={ () =>
+								setMeta( {
+									...meta,
+									voting_open: ! meta?.voting_open,
+								} )
 							}
 						/>
 					</PluginDocumentSettingPanel>
