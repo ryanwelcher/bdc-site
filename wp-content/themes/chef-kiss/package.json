@@ -5,6 +5,7 @@
 	"scripts": {
 		"build:blocks": "wp-scripts build --experimental-modules --webpack-src-dir=blocks",
 		"build:other": "wp-scripts build --config custom-webpack.config.js",
+		"build": "npm run build:other && npm run build:blocks",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
