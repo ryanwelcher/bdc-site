@@ -34,6 +34,15 @@ add_action(
 				'uses_context'       => array( 'postId', 'postType' ),
 			)
 		);
+
+		register_block_bindings_source(
+			'chef-kiss/excerpt',
+			array(
+				'label'              => __( 'Post Excerpt', 'chef-kiss' ),
+				'get_value_callback' => __NAMESPACE__ . '\retrieve_excerpt_binding',
+				'uses_context'       => array( 'postId', 'postType' ),
+			)
+		);
 	}
 );
 
@@ -65,4 +74,14 @@ function retrieve_voting_results_url( $source_args, $block_instance ) {
 		case 'rel':
 			return 'noopener noreferrer';
 	}
+}
+
+/**
+ * The callback to return the excerpt for the binding
+ */
+function retrieve_excerpt_binding( $source_args, $block_instance ) {
+	$post_id      = $block_instance->context['postId'];
+	$post_type    = $block_instance->context['postType'];
+	$current_post = get_post( $post_id );
+	return $current_post->post_excerpt;
 }

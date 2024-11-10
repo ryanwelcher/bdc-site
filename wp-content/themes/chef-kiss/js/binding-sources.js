@@ -70,3 +70,27 @@ registerBlockBindingsSource( {
 		return true;
 	},
 } );
+
+/**
+ * Register the custom bindings so it can be edited in the block editor.
+ */
+registerBlockBindingsSource( {
+	label: __( 'Excerpt' ),
+	name: 'chef-kiss/excerpt',
+	getValues( { select } ) {
+		return {
+			content:
+				select( 'core/editor' ).getEditedPostAttribute( 'excerpt' ),
+		};
+	},
+
+	setValues( { dispatch, bindings } ) {
+		dispatch( 'core/editor' ).editPost( {
+			excerpt: bindings?.content?.newValue,
+		} );
+	},
+
+	canUserEditValue( { select, context } ) {
+		return true;
+	},
+} );

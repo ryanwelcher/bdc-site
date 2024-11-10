@@ -4,6 +4,7 @@
 import { registerBlockVariation } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
 import { addFilter } from '@wordpress/hooks';
+import { postExcerpt as icon } from '@wordpress/icons';
 
 addFilter(
 	'blocks.registerBlockType',
@@ -88,6 +89,28 @@ registerBlockVariation( 'core/button', {
 					source: 'bdc/view-results',
 					args: { key: 'rel' },
 				},
+			},
+		},
+	},
+	scope: [ 'inserter' ],
+} );
+
+/**
+ * Register a block variation to make it easier to assign the custom binding.
+ */
+registerBlockVariation( 'core/paragraph', {
+	name: 'chef-kiss/excerpt',
+	title: __( 'Bound Excerpt', 'chef-kiss' ),
+	icon,
+	description: __(
+		'Mange the post excerpt directly in a block using a custom binding.',
+		'chef-kiss'
+	),
+	isActive: [ 'metadata.bindings.content.source' ],
+	attributes: {
+		metadata: {
+			bindings: {
+				content: { source: 'chef-kiss/excerpt' },
 			},
 		},
 	},

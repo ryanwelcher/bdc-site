@@ -24,5 +24,8 @@
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
-	"prettier": "@wordpress/prettier-config"
+	"prettier": "@wordpress/prettier-config",
+	"dependencies": {
+		"@wordpress/icons": "^10.11.0"
+	}
 }
