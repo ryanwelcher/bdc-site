@@ -29,12 +29,6 @@ registerBlockBindingsSource( {
 			};
 		}
 	},
-
-	setValues( { select, dispatch, context, bindings } ) {},
-
-	canUserEditValue( { select, context } ) {
-		return true;
-	},
 } );
 
 registerBlockBindingsSource( {
@@ -62,12 +56,6 @@ registerBlockBindingsSource( {
 				) }<span class="number-value level-2"></span>`,
 			};
 		}
-	},
-
-	setValues( { select, dispatch, context, bindings } ) {},
-
-	canUserEditValue( { select, context } ) {
-		return true;
 	},
 } );
 
