@@ -15,17 +15,17 @@
  */
 
 :root {
-	--chef-hat-bg: url('assets/svg/chef-hat.svg');
+	--chef-hat-bg: url("assets/svg/chef-hat.svg");
 }
 
 .avatar-chef-hat {
 	background-image: var(--chef-hat-bg);
-    width: 6rem;
-    height: 6rem;
-    background-size: contain;
-    position: absolute;
-    top: -1.74rem;
-    left: 1.9rem;
+	width: 6rem;
+	height: 6rem;
+	background-size: contain;
+	position: absolute;
+	top: -1.74rem;
+	left: 1.9rem;
 	z-index: -1;
 }
 
@@ -45,57 +45,64 @@
 	background-color: var(--wp--preset--color--highlight);
 	color: var(--wp--preset--color--text);
 	font-size: var(--wp--preset--font-size--md);
-	padding:2rem;
+	padding: 2rem;
 	box-sizing: border-box;
-
 }
 
 .wp-block-chef-kiss-level {
-
 	.level-1:before {
 		content: var(--wp--custom--chef-kiss--level--icon);
 	}
 
 	.level-2:before {
-		content: var(--wp--custom--chef-kiss--level--icon) var(--wp--custom--chef-kiss--level--icon);
+		content: var(--wp--custom--chef-kiss--level--icon)
+			var(--wp--custom--chef-kiss--level--icon);
 	}
 
 	.level-3:before {
-		content: var(--wp--custom--chef-kiss--level--icon) var(--wp--custom--chef-kiss--level--icon) var(--wp--custom--chef-kiss--level--icon);
+		content: var(--wp--custom--chef-kiss--level--icon)
+			var(--wp--custom--chef-kiss--level--icon)
+			var(--wp--custom--chef-kiss--level--icon);
 	}
 }
 
 .wp-block-chef-kiss-cooking-time {
-
 	span.number-value {
 		color: var(--wp--preset--color--background);
 	}
 }
 
-
 .view-result-link a {
-		transition: all .2s ease;
-		color: var(--wp--preset--color--text);
-		background-color: var(--wp--preset--color--highlight);
-		border: 3px solid var(--wp--preset--color--card);
-		text-transform: uppercase;
-		text-align: center;
-		font-size: var(--wp--preset--font-size--base);
-		padding: 0.5rem;
-		outline: none;
-		border-radius: 0;
-		border-top-left-radius: 0.4rem;
-	}
+	transition: all 0.2s ease;
+	color: var(--wp--preset--color--text);
+	background-color: var(--wp--preset--color--highlight);
+	border: 3px solid var(--wp--preset--color--card);
+	text-transform: uppercase;
+	text-align: center;
+	font-size: var(--wp--preset--font-size--base);
+	padding: 0.5rem;
+	outline: none;
+	border-radius: 0;
+	border-top-left-radius: 0.4rem;
+}
 
-	.view-result-link a:hover {
-		color: var(--wp--preset--color--background);
-	}
+.view-result-link a:hover {
+	color: var(--wp--preset--color--background);
+}
 
-	.view-result-link a:disabled {
-		transition: none;
-		opacity: 0.5;
-	}
+.view-result-link a:disabled {
+	transition: none;
+	opacity: 0.5;
+}
 
-	.view-result-link a:disabled:hover {
-		color: var(--wp--preset--color--text);
+.view-result-link a:disabled:hover {
+	color: var(--wp--preset--color--text);
+}
+
+/** Post terms text color */
+.taxonomy-ingredients {
+	.wp-block-post-terms__separator,
+	a {
+		color: white;
 	}
+}
