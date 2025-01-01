@@ -99,7 +99,7 @@
 	color: var(--wp--preset--color--text);
 }
 
-/** Post terms text color */
+/** Ingredients terms */
 .taxonomy-ingredients {
 	.wp-block-post-terms__separator,
 	a {
