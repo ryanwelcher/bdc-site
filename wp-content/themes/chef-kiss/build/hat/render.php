@@ -11,7 +11,7 @@
  */
 
 $context = array(
-	'recipeId'   => $block->context['postId'],
+	'recipeId' => $block->context['postId'],
 	'isHidden' => true,
 );
 $svg_id  = "pattern_{$block->context['postId']}";
