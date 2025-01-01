@@ -37,7 +37,7 @@ const blockStylesheets = () =>
 module.exports = {
 	...defaultConfig,
 	entry: {
-		...getWebpackEntryPoints(),
+		...defaultConfig.entry(),
 		...blockStylesheets(),
 		plugins: './js/plugins.js',
 		variations: './js/variations.js',
