@@ -96,7 +96,7 @@ add_filter(
 add_filter(
 	'render_block_core/avatar',
 	function( $block_content, $block ) {
-		if ( isset( $block['attrs']['useCurrentUser'] ) && true === $block['attrs']['useCurrentUser'] ) {
+		if ( is_user_logged_in() && isset( $block['attrs']['useCurrentUser'] ) && true === $block['attrs']['useCurrentUser'] ) {
 			return '<div class="avatar-chef-hat"></div>' . $block_content . '';
 		}
 		return $block_content;
