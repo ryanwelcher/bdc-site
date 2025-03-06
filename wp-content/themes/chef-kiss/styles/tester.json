@@ -1,6 +1,6 @@
 {
 	"$schema": "http://schemas.wp.org/trunk/theme.json",
-	"version": 2,
+	"version": 3,
 	"title": "Tester",
 	"description": "Let's test some colors",
 	"settings": {
@@ -9,6 +9,35 @@
 				"level": {
 					"icon": "'🖕'"
 				}
+			}
+		},
+		"color": {
+			"palette": [
+				{
+					"color": "#fff",
+					"name": "Text",
+					"slug": "text"
+				},
+				{
+					"color": "#E76F51",
+					"name": "Highlight",
+					"slug": "highlight"
+				},
+				{
+					"color": "#2D2B55",
+					"name": "Background",
+					"slug": "background"
+				}
+			]
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "blue"
+		},
+		"background": {
+			"backgroundImage": {
+				"url": "none"
 			}
 		}
 	}

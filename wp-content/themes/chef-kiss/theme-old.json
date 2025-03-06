@@ -32,24 +32,19 @@
 			"defaultPalette": false,
 			"palette": [
 				{
-					"color": "#212121",
+					"color": "#fff",
 					"name": "Text",
 					"slug": "text"
 				},
 				{
-					"color": "#415b50",
+					"color": "#E76F51",
 					"name": "Highlight",
 					"slug": "highlight"
 				},
 				{
-					"color": "#F6F6F6",
+					"color": "#2D2B55",
 					"name": "Background",
 					"slug": "background"
-				},
-				{
-					"color": "#415b50#6D9886",
-					"name": "Darker Green",
-					"slug": "darker-green"
 				}
 			]
 		},
@@ -173,12 +168,13 @@
 		}
 	},
 	"styles": {
-		"blocks": {
-			"core/post-title": {
-				"color": {
-					"text": "var( --wp--preset--color--text )"
-				}
+		"background": {
+			"backgroundImage": {
+				"url": "file:./assets/img/circuits.png"
 			},
+			"backgroundSize": "150px 150px"
+		},
+		"blocks": {
 			"chef-kiss/time-remaining": {
 				"typography": {
 					"fontSize": "var( --wp--preset--font-size--xl )"
@@ -188,9 +184,6 @@
 				"typography": {
 					"fontSize": "var( --wp--preset--font-size--md )",
 					"fontWeight": "300"
-				},
-				"color": {
-					"text": "var( --wp--preset--color--background )"
 				},
 				"css": "& p {margin:0}"
 			},
@@ -218,21 +211,18 @@
 		"elements": {
 			"heading": {
 				"color": {
-					"text": "var( --wp--preset--color--text )"
+					"text": "var( --wp--preset--color--highlight )"
 				}
 			},
 			"h2": {
 				"typography": {
 					"fontSize": "var( --wp--preset--font-size--lg )",
 					"fontWeight": "600"
-				},
-				"color": {
-					"text": "var( --wp--preset--color--text )"
 				}
 			},
 			"link": {
 				"color": {
-					"text": "var( --wp--preset--color--text )"
+					"text": "var( --wp--preset--color--highlight )"
 				}
 			}
 		},
@@ -244,8 +234,7 @@
 				"right": "2rem",
 				"top": "1rem"
 			}
-		},
-		"css": ".wp-block-chef-kiss-cooking-time { span.number-value {color: var(--wp--preset--color--background);}font-size: var(--wp--preset--font-size--md);} .wp-block-chef-kiss-level {color: var(--wp--preset--color--background); font-size: var(--wp--preset--font-size--md);}"
+		}
 	},
 	"templateParts": [
 		{

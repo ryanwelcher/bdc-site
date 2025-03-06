@@ -47,7 +47,7 @@ registerBlockVariation( 'core/paragraph', {
 	title: __( 'Cooking Time', 'chef-kiss' ),
 	icon: 'media-interactive',
 	description: __( 'Display the cooking time with bindings.', 'chef-kiss' ),
-	isActive: [ 'className' ],
+	isActive: [ 'className', 'metadata.bindings.content.source' ],
 	attributes: {
 		className: 'wp-block-chef-kiss-cooking-time',
 		metadata: { bindings: { content: { source: 'bdc/cooking-time' } } },
@@ -61,7 +61,7 @@ registerBlockVariation( 'core/paragraph', {
 	title: __( 'Level', 'chef-kiss' ),
 	icon: 'media-interactive',
 	description: __( 'Display skill level with bindings.', 'chef-kiss' ),
-	isActive: [ 'className' ],
+	isActive: [ 'className', 'metadata.bindings.content.source' ],
 	attributes: {
 		className: 'wp-block-chef-kiss-level',
 		metadata: { bindings: { content: { source: 'bdc/skill-level' } } },

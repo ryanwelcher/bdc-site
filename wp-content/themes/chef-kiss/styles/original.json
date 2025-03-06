@@ -1,0 +1,56 @@
+{
+	"$schema": "http://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Original",
+	"description": "The original theme.",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"color": "#fff",
+					"name": "Text",
+					"slug": "text"
+				},
+				{
+					"color": "#E76F51",
+					"name": "Highlight",
+					"slug": "highlight"
+				},
+				{
+					"color": "#2D2B55",
+					"name": "Background",
+					"slug": "background"
+				}
+			]
+		}
+	},
+	"styles": {
+		"background": {
+			"backgroundImage": {
+				"url": "file:./assets/img/circuits.png"
+			},
+			"backgroundSize": "150px 150px"
+		},
+		"elements": {
+			"heading": {
+				"color": {
+					"text": "var( --wp--preset--color--highlight )"
+				}
+			},
+			"h2": {
+				"typography": {
+					"fontSize": "var( --wp--preset--font-size--lg )",
+					"fontWeight": "600"
+				},
+				"color": {
+					"text": "var( --wp--preset--color--text )"
+				}
+			},
+			"link": {
+				"color": {
+					"text": "var( --wp--preset--color--highlight )"
+				}
+			}
+		}
+	}
+}

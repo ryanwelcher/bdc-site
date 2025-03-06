@@ -66,11 +66,14 @@
 	}
 }
 
-.wp-block-chef-kiss-cooking-time {
+/* .wp-block-chef-kiss-cooking-time {
 	span.number-value {
 		color: var(--wp--preset--color--background);
 	}
 }
+.wp-block-chef-kiss-level {
+	color: var(--wp--preset--color--background);
+} */
 
 .view-result-link a {
 	transition: all 0.2s ease;
@@ -103,6 +106,6 @@
 .taxonomy-ingredients {
 	.wp-block-post-terms__separator,
 	a {
-		color: white;
+		/* color: white; */
 	}
 }
