@@ -1,16 +1,38 @@
 <?php
 /**
- * Title: Three recipes per row
- * Slug: chef-kiss/recipes-three-up
- * Description: Displays recipes in a 3 column grid
+ * Title: User Recipes
+ * Slug: chef-kiss/user-recipes
+ * Description: Displays user recipes in a 3 column grid
  * Keywords: query
  * Block Types: core/query
  * Categories: chef-kiss/conference-voting
  */
 
-?>
-<!-- wp:query {"queryId":3,"query":{"perPage":50,"pages":0,"offset":0,"order":"asc","orderBy":"meta_value_num","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[],"postType":"recipe","meta_query":{"queries":[{"id":"6b5aa7a0-be82-44e0-8135-5119f5ffc5f6","meta_key":"time","meta_value":"","meta_compare":""}]},"exclude_current":0},"tagName":"main","namespace":"advanced-query-loop","align":"wide","layout":{"type":"default"}} -->
-<main class="wp-block-query alignwide"><!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|60"}},"layout":{"type":"grid","columnCount":3}} -->
+$current_user = wp_get_current_user();
+$user_recipes = get_user_meta( $current_user->ID, 'recipes', true );
+$recipes_array = [];
+if( $user_recipes ) {
+	$recipes = new WP_Query( [
+		'post_type'       => 'recipe',
+		'post__in'       => $user_recipes,
+		'posts_per_page' => 50,
+	] );
+
+
+	if ( $recipes->have_posts() ) {
+		foreach ( $recipes->posts as $recipe ) {
+			$recipes_array[] = [
+				'id' => $recipe->ID,
+				'title' => $recipe->post_title,
+			];
+		}
+	}
+}
+
+
+if ( count( $recipes_array ) > 0 ) : ?>
+<!-- wp:query {"queryId":1,"query":{"perPage":10,"pages":0,"offset":0,"postType":"recipe","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[],"format":[],"disable_pagination":true,"include_posts":<?php echo wp_json_encode( $recipes_array ); ?>,"meta_query":{}},"namespace":"advanced-query-loop","className":"alignwide"} -->
+<div class="wp-block-query alignwide"><!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|60"}},"layout":{"type":"grid","columnCount":3}} -->
 <!-- wp:group {"className":"recipe-container","style":{"border":{"radius":{"topLeft":"1rem","topRight":"0rem","bottomLeft":"0rem","bottomRight":"0rem"}},"spacing":{"margin":{"top":"0","bottom":"0"},"blockGap":"var:preset|spacing|20"},"dimensions":{"minHeight":"28rem"}},"backgroundColor":"background","layout":{"type":"constrained"}} -->
 <div class="wp-block-group recipe-container has-background-background-color has-background" style="border-top-left-radius:1rem;border-top-right-radius:0rem;border-bottom-left-radius:0rem;border-bottom-right-radius:0rem;min-height:28rem;margin-top:0;margin-bottom:0"><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|40","padding":{"right":"0","left":"0"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="padding-right:0;padding-left:0"><!-- wp:cover {"useFeaturedImage":true,"dimRatio":80,"overlayColor":"background","isUserOverlayColor":true,"minHeight":202,"minHeightUnit":"px","isDark":false,"style":{"border":{"radius":{"topLeft":"1rem"}},"spacing":{"padding":{"top":"0","bottom":"0","left":"1.5rem","right":"1.5rem"},"margin":{"top":"0","bottom":"0"},"blockGap":"var:preset|spacing|20"}},"layout":{"type":"constrained"}} -->
@@ -31,11 +53,7 @@
 <!-- /wp:group -->
 
 <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"2rem","right":"2rem"},"margin":{"top":"0","bottom":"0"}},"border":{"top":{"color":"var:preset|color|highlight","width":"1px"}},"dimensions":{"minHeight":""}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group" style="border-top-color:var(--wp--preset--color--highlight);border-top-width:1px;margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--40);padding-right:2rem;padding-bottom:var(--wp--preset--spacing--40);padding-left:2rem"><!-- wp:post-excerpt {"showMoreOnNewLine":false,"excerptLength":75,"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}}} /-->
-
-<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"right"}} -->
-<div class="wp-block-group"><!-- wp:chef-kiss/add-user-recipe {"align":"wide"} /--></div>
-<!-- /wp:group --></div>
+<div class="wp-block-group" style="border-top-color:var(--wp--preset--color--highlight);border-top-width:1px;margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--40);padding-right:2rem;padding-bottom:var(--wp--preset--spacing--40);padding-left:2rem"><!-- wp:post-excerpt {"showMoreOnNewLine":false,"excerptLength":75,"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}}} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 <!-- /wp:post-template -->
@@ -44,5 +62,10 @@
 <!-- wp:paragraph {"placeholder":"Add text or blocks that will display when a query returns no results."} -->
 <p></p>
 <!-- /wp:paragraph -->
-<!-- /wp:query-no-results --></main>
+<!-- /wp:query-no-results --></div>
 <!-- /wp:query -->
+<?php else : ?>
+	<!-- wp:heading {"level":2} -->
+<h2>You have no saved recipes</h2>
+<!-- /wp:heading -->
+<?php endif;

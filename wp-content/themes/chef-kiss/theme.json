@@ -47,7 +47,7 @@
 					"slug": "background"
 				},
 				{
-					"color": "#415b50#6D9886",
+					"color": "#6D9886",
 					"name": "Darker Green",
 					"slug": "darker-green"
 				}
@@ -204,7 +204,8 @@
 			"core/post-excerpt": {
 				"typography": {
 					"fontWeight": "200"
-				}
+				},
+				"css": "min-height:6rem;"
 			}
 		},
 		"color": {

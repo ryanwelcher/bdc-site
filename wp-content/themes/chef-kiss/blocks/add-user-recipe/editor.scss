@@ -1,6 +1,5 @@
 /**
- * The following styles get applied both on the front of your site
- * and in the editor.
+ * The following styles get applied inside the editor only.
  *
  * Replace them with your own styles or remove the file completely.
  */
@@ -9,8 +8,8 @@
 	button {
 		transition: all .2s ease;
 		color: var(--wp--preset--color--text);
-		background-color: var(--wp--preset--color--background);
-		border: 1px solid var(--wp--preset--color--highlight);
+		background-color: var(--wp--preset--color--highlight);
+		border: 3px solid var(--wp--preset--color--card);
 		text-transform: uppercase;
 		text-align: center;
 		font-size: var(--wp--preset--font-size--base);
@@ -21,7 +20,6 @@
 
 	button:hover {
 		color: var(--wp--preset--color--background);
-		background-color: var(--wp--preset--color--highlight);
 	}
 
 	button:disabled {

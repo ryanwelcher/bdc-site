@@ -23,6 +23,7 @@ const { state } = store( 'chef-kiss', {
 	},
 	actions: {
 		vote: async () => {
+			debugLog( state );
 			const context = getContext();
 			const { time, recipeId, added, user } = context;
 			context.isVoteLoading = true;
@@ -41,7 +42,7 @@ const { state } = store( 'chef-kiss', {
 					method: 'POST',
 					data: {
 						user_id: user,
-						conference_id: state.conferenceId,
+						conference_id: state.conference,
 						recipe_id: recipeId,
 						action: added ? 'remove' : 'add',
 					},
@@ -75,3 +76,11 @@ const { state } = store( 'chef-kiss', {
 		},
 	},
 } );
+
+/**
+ * Helper function to unwrap the proxies and display the underlying data.
+ * @param {*} data
+ * @return
+ */
+const debugLog = ( data ) =>
+	console.log( JSON.parse( JSON.stringify( data ) ) );

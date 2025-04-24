@@ -1,9 +1,9 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "chef-kiss/vote-button",
+  "name": "chef-kiss/add-user-recipe",
   "version": "0.3.0",
-  "title": "Vote Button",
+  "title": "Add User recipe",
   "category": "widgets",
   "icon": "media-interactive",
   "description": "An interactive block with the Interactivity API",
@@ -14,9 +14,10 @@
   },
   "usesContext": [
     "postId",
-    "queryId"
+    "queryId",
+    "userId "
   ],
-  "textdomain": "vote-button",
+  "textdomain": "add-user-recipe",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",

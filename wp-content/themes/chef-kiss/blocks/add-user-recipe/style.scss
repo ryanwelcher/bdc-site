@@ -5,7 +5,7 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-chef-kiss-vote-button {
+.wp-block-chef-kiss-add-user-recipe {
 	button {
 		transition: all .2s ease;
 		color: var(--wp--preset--color--text);
@@ -22,14 +22,5 @@
 	button:hover {
 		color: var(--wp--preset--color--background);
 		background-color: var(--wp--preset--color--highlight);
-	}
-
-	button:disabled {
-		transition: none;
-		opacity: 0.5;
-	}
-
-	button:disabled:hover {
-		color: var(--wp--preset--color--text);
 	}
 }

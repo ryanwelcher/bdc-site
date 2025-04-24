@@ -30,7 +30,7 @@ $context = array(
 
 <div
 	<?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>
-	data-wp-interactive='{ "namespace": "chef-kiss" }'
+	data-wp-interactive="chef-kiss"
 	data-wp-context='<?php echo wp_json_encode( $context ); ?>'
 	data-wp-watch='callbacks.canBeAdded'
 	data-wp-init='callbacks.isAdded'

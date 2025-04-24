@@ -69,14 +69,7 @@ const ResultsScreen = ( { conference } ) => {
 // Check if createRoot is available. This addresses if React 18 is available or not as 6.2 shipped with React 18.
 domReady( () => {
 	const rootEl = document.getElementById( 'results-display' );
-	if ( createRoot ) {
-		createRoot( document.getElementById( 'results-display' ) ).render(
-			<ResultsScreen conference={ rootEl.dataset?.cid } />
-		);
-	} else {
-		render(
-			<ResultsScreen conference={ rootEl.dataset?.cid } />,
-			document.getElementById( 'results-display' )
-		);
-	}
+	createRoot( document.getElementById( 'results-display' ) ).render(
+		<ResultsScreen conference={ rootEl.dataset?.cid } />
+	);
 } );

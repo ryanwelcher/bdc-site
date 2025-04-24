@@ -93,13 +93,17 @@ add_filter(
 	}
 );
 
+/**
+ * Filter the core/navigation block to allow our variation
+ */
 add_filter(
-	'render_block_core/avatar',
-	function( $block_content, $block ) {
-		if ( is_user_logged_in() && isset( $block['attrs']['useCurrentUser'] ) && true === $block['attrs']['useCurrentUser'] ) {
-			return '<div class="avatar-chef-hat"></div>' . $block_content . '';
+	'block_type_metadata_settings',
+	function( $settings, $metadata ) {
+		if ( 'core/navigation' === $settings['name'] ) {
+			$settings['allowed_blocks'][] = 'core/avatar';
+			return $settings;
 		}
-		return $block_content;
+		return $settings;
 	},
 	10,
 	2
