@@ -10,11 +10,14 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 
-wp_enqueue_script( 'wp-api-fetch' );
+
 
 $current_user = wp_get_current_user();
+if ( ! $current_user ) {
+	return;
+}
 $recipes = get_user_meta( $current_user->ID, 'recipes', true );
-
+wp_enqueue_script( 'wp-api-fetch' );
 // Enqueue api-fetch manually because the package doesn't support modules yet
 wp_interactivity_state(
 	'user-recipes',
