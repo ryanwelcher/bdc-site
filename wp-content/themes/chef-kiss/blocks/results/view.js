@@ -38,7 +38,7 @@ const ResultsScreen = ( { conference } ) => {
 		( votes / totalVotes ) * 100;
 	return (
 		<div className="results">
-			<ul>
+			<ul className="vote-container">
 				{ votes.map( ( { id, title, votes } ) => (
 					<li className="vote-bar" key={ id }>
 						<h3>{ title }</h3>
@@ -52,11 +52,13 @@ const ResultsScreen = ( { conference } ) => {
 									) }%`,
 								} }
 							>
-								{ _n(
-									`${ votes } Vote`,
-									`${ votes } Votes`,
-									votes
-								) }
+								<span className="vote-count-text">
+									{ _n(
+										`${ votes } vote`,
+										`${ votes } votes`,
+										votes
+									) }
+								</span>
 							</div>
 						</div>
 					</li>

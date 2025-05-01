@@ -15,15 +15,17 @@
 		h3 {
 			width: 25%;
 			text-align: right;
+			font-size: var(--wp--preset--font-size--md);
 		}
 
 		.vote-progress {
 			border: 1px solid var(--wp--preset--color--highlight);
 			box-shadow: var(--wp--custom--chef-kiss--box-shadow);
-			background-color: var(--wp--preset--color--background);
+			background-color: var(--wp--preset--color--darker-green);
 			margin-left: 1rem;
 			border-top-left-radius: 1rem;
 			width: 100%;
+			color: var(--wp--preset--color--white);
 
 			.vote-progress-inner {
 				height: 100%;
@@ -35,7 +37,40 @@
 				padding-left: 1rem;
 				box-sizing: border-box;
 				border-top-left-radius: 0.9rem;
+
+				.vote-count-text {
+					white-space: nowrap;
+					font-size: var(--wp--preset--font-size--lg);
+					font-weight: bold;
+				}
 			}
 		}
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.wp-block-chef-kiss-results {
+		ul.vote-container {
+			padding-inline-start: 0;
+		}
+
+		li.vote-bar {
+			flex-direction: column;
+
+			h3 {
+				width: 100%;
+				text-align: left;
+			}
+
+			.vote-progress {
+				margin-left: 0;
+				min-height: 3rem;
+
+				.vote-progress-inner {
+					min-height: 3rem;
+				}
+			}
+		}
+
 	}
 }
