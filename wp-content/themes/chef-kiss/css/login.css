@@ -1,0 +1,84 @@
+/* Custom login page styles */
+body.login {
+    background-color: #F6F6F6;
+}
+.login h1{
+	position: relative;
+}
+.login h1::before{
+	content:"";
+	background-image: url("../assets/svg/chef-hat.svg");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	width: 120%;
+	height: 120%;
+	display: block;
+	position: absolute;
+	top: -114%;
+	left: 45%;
+	transform: translateX(-50%);
+	rotate: -10deg;
+}
+
+.chef-hat {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-15deg);
+    width: 120px;
+    height: 120px;
+    z-index: 1;
+}
+
+.chef-hat img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.login form {
+    background-color: #415b50;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login label {
+    color: #F6F6F6;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+    background-color: #F6F6F6;
+    border: 1px solid #6D9886;
+    border-radius: 4px;
+    color: #212121;
+}
+
+.login input[type="text"]:focus,
+.login input[type="password"]:focus {
+    border-color: #6D9886;
+    box-shadow: 0 0 0 1px #6D9886;
+}
+
+.wp-core-ui .button-primary {
+    background-color: #6D9886;
+    border-color: #6D9886;
+    color: #F6F6F6;
+}
+
+.wp-core-ui .button-primary:hover,
+.wp-core-ui .button-primary:focus {
+    background-color: #415b50;
+    border-color: #415b50;
+}
+
+.login #backtoblog a,
+.login #nav a {
+    color: #415b50;
+}
+
+.login #backtoblog a:hover,
+.login #nav a:hover {
+    color: #6D9886;
+}

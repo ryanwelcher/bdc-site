@@ -21,6 +21,7 @@ require_once THEME_INC_PATH . 'blocks.php';
 require_once THEME_INC_PATH . 'rest-api.php';
 require_once THEME_INC_PATH . 'results.php';
 require_once THEME_INC_PATH . 'binding-sources.php';
+require_once THEME_INC_PATH . 'login.php';
 
 
 add_filter( 'default_wp_template_part_areas', __NAMESPACE__ . '\template_part_areas' );
