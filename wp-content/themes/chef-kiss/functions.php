@@ -49,3 +49,15 @@ function register_pattern_categories() {
 		)
 	);
 }
+
+add_action( 'init', function() {
+		register_meta(
+			'user',
+			'recipes',
+			[
+				'show_in_rest' => true,
+				'single'       => true,
+				'type'         => 'array',
+			]
+	);
+});
