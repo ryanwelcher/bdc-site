@@ -116,3 +116,8 @@
 		/* color: white; */
 	}
 }
+.recipe {
+	.wp-block-post-excerpt {
+		min-height: 180px;
+	}
+}
