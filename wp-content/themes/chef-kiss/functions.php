@@ -55,9 +55,16 @@ add_action( 'init', function() {
 			'user',
 			'recipes',
 			[
-				'show_in_rest' => true,
 				'single'       => true,
 				'type'         => 'array',
+				'show_in_rest' => array(
+					'schema' => array(
+						'type'  => 'array',
+						'items' => array(
+							'type' => 'number',
+						),
+					),
+				),
 			]
 	);
 });
