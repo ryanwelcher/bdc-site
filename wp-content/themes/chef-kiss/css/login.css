@@ -82,3 +82,13 @@ body.login {
 .login #nav a:hover {
     color: #6D9886;
 }
+
+.login #reg_passmail {
+	color: #F6F6F6;
+}
+
+.login .notice {
+	background-color: #415b50;
+    border-color: #6D9886;
+	color: #F6F6F6;
+}
