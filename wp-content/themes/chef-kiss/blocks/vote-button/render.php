@@ -23,7 +23,6 @@ $context = array(
 	'addCTA'        => __( 'Add Recipe', 'chef-kiss' ),
 	'removeCTA'     => __( 'Remove Recipe', 'chef-kiss' ),
 	'savingCTA'     => __( 'Saving...', 'chef-kiss' ),
-	'user'          => get_current_user_id(),
 	'isVoteLoading' => false,
 );
 ?>

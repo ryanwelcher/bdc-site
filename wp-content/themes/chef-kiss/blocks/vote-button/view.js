@@ -29,7 +29,7 @@ const { state } = store( 'chef-kiss', {
 				return;
 			}
 
-			const { time, recipeId, added, user } = context;
+			const { time, recipeId, added } = context;
 
 			// Snapshot shared state so we can roll back if the request fails.
 			const prevAssigned = state.assigned;
@@ -52,7 +52,6 @@ const { state } = store( 'chef-kiss', {
 					path: '/bdc/v1/vote',
 					method: 'POST',
 					data: {
-						user_id: user,
 						conference_id: state.conference,
 						recipe_id: recipeId,
 						action: added ? 'remove' : 'add',

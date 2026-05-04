@@ -9,14 +9,10 @@ import { _n } from '@wordpress/i18n';
 const ResultsScreen = ( { conference } ) => {
 	const [ votes, setVotes ] = useState( [] );
 	const [ totalVotes, setTotalVotes ] = useState( 0 );
-	console.log( conference );
 
 	const getVotes = ( conference ) => {
-		console.log( `fetching votes for ${ conference }` );
 		apiFetch( {
-			path: '/bdc/v1/results',
-			method: 'POST',
-			data: { cid: conference },
+			path: `/bdc/v1/results${ conference ? `?cid=${ conference }` : '' }`,
 		} ).then( ( { status, data } ) => {
 			const { totalVotes, votes } = data;
 			const sorted = votes.sort(

@@ -31,7 +31,7 @@ class BDC_REST_API extends WP_REST_Controller {
 				array(
 					'methods'             => \WP_REST_Server::CREATABLE,
 					'callback'            => array( $this, 'register_vote' ),
-					'permission_callback' => '__return_true',
+					'permission_callback' => 'is_user_logged_in',
 				),
 			)
 		);
@@ -40,7 +40,7 @@ class BDC_REST_API extends WP_REST_Controller {
 			'/results',
 			array(
 				array(
-					'methods'             => \WP_REST_Server::CREATABLE,
+					'methods'             => \WP_REST_Server::READABLE,
 					'callback'            => array( $this, 'get_vote_results' ),
 					'permission_callback' => '__return_true',
 				),
@@ -56,47 +56,70 @@ class BDC_REST_API extends WP_REST_Controller {
 	 * @return WP_Error|WP_REST_Response
 	 */
 	public function get_vote_results( $request ) {
-		$conference_id = $request['cid']; // If no cid passed, get all votes
-		$rtn           = array();
-		$query_params  = array(
-			'post_type' => 'recipe',
-			'tax_query' => array(
-				array(
-					'taxonomy' => 'votes',
-					'operator' => 'EXISTS',
-				),
-			),
+		$conference_id = $request['cid'];
+		$rtn           = array(
+			'totalVotes' => 0,
+			'votes'      => array(),
 		);
 
-		$query = new \WP_query( $query_params );
+		// Fetch all vote terms in one query instead of one per recipe.
+		$all_terms = get_terms(
+			array(
+				'taxonomy'   => 'votes',
+				'hide_empty' => true,
+				'number'     => 0,
+			)
+		);
 
-		if ( $query->have_posts() ) {
-			$rtn['totalVotes'] = wp_count_terms( array( 'taxonomy' => 'votes' ) );
-			$rtn['votes']      = array();
-			foreach ( $query->posts as $recipe ) {
-				$every_vote_ever = get_the_terms( $recipe->ID, 'votes' );
-				if ( isset( $conference_id ) ) {
-					$votes = array_filter(
-						$every_vote_ever,
-						function( $term ) use ( $conference_id ) {
-							return str_contains( $term->name, "conference_{$conference_id}_" );
-						}
-					);
+		if ( is_wp_error( $all_terms ) || empty( $all_terms ) ) {
+			return new \WP_REST_Response( array( 'status' => 'success', 'data' => $rtn ) );
+		}
 
-				} else {
-					$votes = $every_vote_ever;
+		// Filter to the requested conference when a cid is provided.
+		if ( isset( $conference_id ) ) {
+			$all_terms = array_filter(
+				$all_terms,
+				function ( $term ) use ( $conference_id ) {
+					return str_contains( $term->name, "conference_{$conference_id}_" );
 				}
+			);
+		}
 
-				$vote_count = count( $votes );
+		if ( empty( $all_terms ) ) {
+			return new \WP_REST_Response( array( 'status' => 'success', 'data' => $rtn ) );
+		}
 
-				if ( $vote_count > 0 ) {
-					$rtn['votes'][] = array(
-						'id'    => $recipe->ID,
-						'title' => $recipe->post_title,
-						'votes' => count( $votes ),
-					);
-				}
+		// Parse recipe IDs from term names (format: user_{uid}_conference_{cid}_recipe_{rid}).
+		$votes_by_recipe = array();
+		foreach ( $all_terms as $term ) {
+			if ( preg_match( '/_recipe_(\d+)$/', $term->name, $matches ) ) {
+				$recipe_id                      = (int) $matches[1];
+				$votes_by_recipe[ $recipe_id ] = ( $votes_by_recipe[ $recipe_id ] ?? 0 ) + 1;
 			}
+		}
+
+		if ( empty( $votes_by_recipe ) ) {
+			return new \WP_REST_Response( array( 'status' => 'success', 'data' => $rtn ) );
+		}
+
+		// Fetch all recipe titles in a single query.
+		$recipes = get_posts(
+			array(
+				'post_type'      => 'recipe',
+				'post__in'       => array_keys( $votes_by_recipe ),
+				'posts_per_page' => -1,
+				'post_status'    => 'publish',
+			)
+		);
+
+		$rtn['totalVotes'] = array_sum( $votes_by_recipe );
+
+		foreach ( $recipes as $recipe ) {
+			$rtn['votes'][] = array(
+				'id'    => $recipe->ID,
+				'title' => $recipe->post_title,
+				'votes' => $votes_by_recipe[ $recipe->ID ],
+			);
 		}
 
 		return new \WP_REST_Response(
@@ -114,7 +137,7 @@ class BDC_REST_API extends WP_REST_Controller {
 	 * @return WP_Error|WP_REST_Response
 	 */
 	public function register_vote( $request ) {
-		$user_id       = $request['user_id']; // This needs to be unique. Hopefully a user_id from the database.
+		$user_id       = get_current_user_id();
 		$conference_id = $request['conference_id'];
 		$recipe_id     = $request['recipe_id'];
 		$action        = $request['action'] ?? 'add';
@@ -122,8 +145,8 @@ class BDC_REST_API extends WP_REST_Controller {
 		$rtn = false;
 
 		// Return an error if ids are missing.
-		if ( ! $user_id || ! $conference_id || ! $recipe_id ) {
-			return new \WP_Error( 'Missing Params', 'Requires: $user_id, $conference_id, and $recipe_id' );
+		if ( ! $conference_id || ! $recipe_id ) {
+			return new \WP_Error( 'Missing Params', 'Requires: conference_id and recipe_id' );
 		}
 
 		// Generate the term name - we want to be able query for a count of terms for each recipe.
