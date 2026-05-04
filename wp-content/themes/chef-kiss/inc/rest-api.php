@@ -119,7 +119,6 @@ class BDC_REST_API extends WP_REST_Controller {
 		$recipe_id     = $request['recipe_id'];
 		$action        = $request['action'] ?? 'add';
 
-		// die( print_r($request));
 		$rtn = false;
 
 		// Return an error if ids are missing.
@@ -156,27 +155,33 @@ class BDC_REST_API extends WP_REST_Controller {
 	}
 
 	/**
-	 * Add a vote to a conference Id
+	 * Add a vote for a recipe.
 	 *
-	 * @param {string}  $term_name     The name of the term to create and assign.
-	 * @param {integer} $conference_id The post ID of the conference.
+	 * @param {string}  $term_name The unique vote term name.
+	 * @param {integer} $recipe_id The post ID of the recipe.
 	 */
 	private function add_vote( $term_name, $recipe_id ) {
+		// Return early if the vote already exists — concurrent requests land here safely.
+		$existing = get_term_by( 'name', $term_name, 'votes' );
+		if ( $existing ) {
+			return array( $existing->term_id );
+		}
 		return wp_set_object_terms( $recipe_id, $term_name, 'votes', true );
 	}
 
 	/**
-	 * Remove a vote to a conference Id
+	 * Remove a vote for a recipe.
 	 *
-	 * @param {string}  $term_name     The name of the term to create and assign.
-	 * @param {integer} $conference_id The post ID of the conference.
+	 * @param {string}  $term_name The unique vote term name.
+	 * @param {integer} $recipe_id The post ID of the recipe.
 	 */
-	private function remove_vote( $term_name, $conference_id ) {
-		$term = get_term_by( 'name', $term_name, 'votes', );
-		if ( $term ) {
-			return wp_delete_term( $term->term_id, 'votes' );
+	private function remove_vote( $term_name, $recipe_id ) {
+		$term = get_term_by( 'name', $term_name, 'votes' );
+		if ( ! $term ) {
+			// Already removed — treat as success so concurrent removes don't error.
+			return true;
 		}
-		return new \WP_Error( 'Term not found' );
+		return wp_delete_term( $term->term_id, 'votes' );
 	}
 }
 

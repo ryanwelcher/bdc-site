@@ -23,10 +23,20 @@ const { state } = store( 'chef-kiss', {
 	},
 	actions: {
 		vote: async () => {
-			debugLog( state );
 			const context = getContext();
+
+			if ( context.isVoteLoading ) {
+				return;
+			}
+
 			const { time, recipeId, added, user } = context;
+
+			// Snapshot shared state so we can roll back if the request fails.
+			const prevAssigned = state.assigned;
+			const prevSelectedRecipes = [ ...state.selectedRecipes ];
+
 			context.isVoteLoading = true;
+
 			if ( ! added ) {
 				state.assigned += Number( time );
 				state.selectedRecipes.push( recipeId );
@@ -36,6 +46,7 @@ const { state } = store( 'chef-kiss', {
 					( id ) => id !== recipeId
 				);
 			}
+
 			try {
 				const request = await apiFetch( {
 					path: '/bdc/v1/vote',
@@ -50,9 +61,11 @@ const { state } = store( 'chef-kiss', {
 				if ( 'success' === request.status ) {
 					context.added = ! context.added;
 				}
-				context.isVoteLoading = false;
 			} catch ( error ) {
-				console.log( error );
+				state.assigned = prevAssigned;
+				state.selectedRecipes = prevSelectedRecipes;
+			} finally {
+				context.isVoteLoading = false;
 			}
 		},
 	},
@@ -77,10 +90,3 @@ const { state } = store( 'chef-kiss', {
 	},
 } );
 
-/**
- * Helper function to unwrap the proxies and display the underlying data.
- * @param {*} data
- * @return
- */
-const debugLog = ( data ) =>
-	console.log( JSON.parse( JSON.stringify( data ) ) );
